@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Oleo+Script&display=swap);
+
+$roboto-slab: 'Roboto Slab', serif;   
+$open-sans: 'Open Sans', sans-serif;
+$josefin-sans: 'Josefin Sans', serif;
+
+.poster > img{
+  width: 200px;
+  height: 200px;
+}
+
+.game{
+  min-height: 300px;
+  
+  .game-image{
+    height: 300px;
+    border-radius: 15px;
+    background-size: cover;
+  }
+}
