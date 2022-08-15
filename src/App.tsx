@@ -4,6 +4,7 @@ const App = () => {
   return(
     <>
       APP
+      <img src="./images/logo.png" />
     </>
   );
 };
