@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-import { multiqueryBody__fetchInitialState } from "../constant/multiqueryBody__fetchInitialState";
+import { fetchInit_data } from "../constant/middlewares_const";
 import { initData } from "../redux/actions";
 
 interface IResponse{
@@ -15,7 +15,7 @@ const config = {
     'Authorization': 'Bearer h6cb5x1z8thq0l8rrj1l6ezhc2xr0x', 
     'Content-Type': 'text/plain'
   },
-  data : multiqueryBody__fetchInitialState
+  data : fetchInit_data
 };
 
 export const fetchInitGames = () => (dispatch: Dispatch) => {

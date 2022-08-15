@@ -21,9 +21,9 @@ export function GameBody () {
   }, []);
   
   return (
-    <div>
+    <div className="game-sections">
       {['section 1','section 2','section 3'].map((genre: string) => 
-        <div key={genre} className="game-body">
+        <div key={genre}>
           <h2>{genre}</h2>
           <GameSection />
         </div>)}

@@ -1,7 +1,8 @@
 .header{
   padding: 10px 16px;
   position: sticky; top: 0;
-  background-color: #000;
+  background-color: rgba(31,27,46,.88);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
   z-index: 2;

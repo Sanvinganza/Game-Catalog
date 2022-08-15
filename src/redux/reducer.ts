@@ -2,13 +2,24 @@ import { IGenre, IUrl } from './actions';
 import {
   GET_GENRES,
   GET_IMAGE_URLS,
+  GET_TOP_RATING_GAMES,
   INIT_STATE
 } from './actions.type';
+
+interface IGame {
+  name: string,
+  age_rating: number,
+  storyline: string,
+  created_at: number,
+  poster: string,
+  rating: number
+}
 
 export interface IState{
   urls: IUrl[],
   genres: IGenre[],
-  initialData: any
+  initialData: any,
+  topRatingGames: IGame[]
 }
 
 export interface IAction {
@@ -16,7 +27,8 @@ export interface IAction {
   payload: {
     urls: IUrl[],
     genres: IGenre[],
-    data: any
+    data: any,
+    topRatingGames: IGame[]
   }
 }
 
@@ -26,8 +38,8 @@ const initialState: IState = {
     url: '//images.igdb.com/igdb/image/upload/t_thumb/w5fcogetb88owqbryp9j.jpg'
   }],
   genres: [
-
   ],
+  topRatingGames: [],
   initialData: []
 }
 
@@ -47,6 +59,11 @@ export const rootReducer = (state: IState = initialState, action: IAction) => {
       return {
         ...state,
         initialData: [...action.payload.data]
+      }
+    case GET_TOP_RATING_GAMES: 
+      return {
+        ...state,
+        topRatingGames: [...action.payload.topRatingGames]
       }
     default: return state;
   }

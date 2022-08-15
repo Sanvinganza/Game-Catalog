@@ -32,7 +32,8 @@ export function GameSection () {
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}
         slidesPerView={3}
-        navigation
+        watchSlidesProgress={true}
+        loop={true}
         scrollbar={{ draggable: true }}
       >
         {urls.map((url: IUrl) => <SwiperSlide key={url.id}>
