@@ -22,9 +22,9 @@ export function GameBody () {
   
   return (
     <div className="game-sections">
-      {['section 1','section 2','section 3'].map((genre: string) => 
-        <div key={genre}>
-          <h2>{genre}</h2>
+      {['Shooter','Fighting','Music'].map((genre: string) => 
+        <div className="game-section" key={genre}>
+          <a href="" className="game-genre">{genre}</a>
           <GameSection />
         </div>)}
     </div>

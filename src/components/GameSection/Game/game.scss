@@ -1,21 +1,46 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
 @import url(https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Oleo+Script&display=swap);
 
-$roboto-slab: 'Roboto Slab', serif;   
-$open-sans: 'Open Sans', sans-serif;
-$josefin-sans: 'Josefin Sans', serif;
+$open-sans: 'Open Sans',sans-serif;
 
-.poster > img{
-  width: 200px;
+.poster > img {
+  width: 190px;
   height: 200px;
 }
 
-.game{
+.game {
   min-height: 300px;
+  font-family: $open-sans;
+
+  .game-title {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.6em;
+  }
   
-  .game-image{
+  .game-image {
     height: 300px;
     border-radius: 15px;
     background-size: cover;
+    position: relative;
+    box-shadow: 2px 2px 5px 2px #ff1234;
+
+    .game-rating {
+      background-color: #da0000;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 10px;
+      top: 10px;
+      position: absolute;
+      left: 10px;
+    }
+  
+    .game-age-rating {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-shadow: 2px 2px 2px 2px black;
+    }
   }
 }

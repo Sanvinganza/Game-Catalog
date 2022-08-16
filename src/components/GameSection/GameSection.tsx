@@ -24,22 +24,17 @@ export function GameSection () {
   }, []);
   
   return (
-    <div className="card-list">
-      <div className="card-list--header">
-
-      </div>
-      <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={3}
-        watchSlidesProgress={true}
-        loop={true}
-        scrollbar={{ draggable: true }}
-      >
-        {urls.map((url: IUrl) => <SwiperSlide key={url.id}>
-          <Game imageUrl={url.url}/>
-        </SwiperSlide>)}
-      </Swiper>
-    </div>
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={3.01}
+      watchSlidesProgress={true}
+      loop={true}
+      scrollbar={{ draggable: true }}
+    >
+      {urls.map((url: IUrl) => <SwiperSlide key={url.id}>
+        <Game imageUrl={url.url}/>
+      </SwiperSlide>)}
+    </Swiper>
   );
 }
