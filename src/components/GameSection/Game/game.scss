@@ -14,7 +14,6 @@ $open-sans: 'Open Sans',sans-serif;
   .game-title {
     text-align: center;
     margin: 10px 0;
-    font-size: 1.6em;
   }
   
   .game-image {
@@ -23,7 +22,8 @@ $open-sans: 'Open Sans',sans-serif;
     background-size: cover;
     position: relative;
     box-shadow: 2px 2px 5px 2px #ff1234;
-
+    background-position: center;
+    
     .game-rating {
       background-color: #da0000;
       border-radius: 50%;
@@ -42,5 +42,26 @@ $open-sans: 'Open Sans',sans-serif;
       right: 10px;
       text-shadow: 2px 2px 2px 2px black;
     }
+  }
+}
+
+@media (min-width: 560px) {
+  .game {
+    font-size: 1em;
+  }
+  .game-image{
+    height: 250px;
+  }
+}
+
+@media (min-width: 960px) {
+  .game {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .game {
+    font-size: 2em;
   }
 }
