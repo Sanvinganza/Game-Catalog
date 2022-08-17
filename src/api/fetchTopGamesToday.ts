@@ -5,7 +5,7 @@ import { getGenres, getImageUrls, IGenre, IUrl } from "../redux/actions";
 interface IResponse{
   data: IGenre[]
 }
-
+//1642336928 unix today
 export const fetchGenres = () => (dispatch: Dispatch) => {
   axios.get('v4/genres?fields=name',{
     headers: {

@@ -1,3 +1,4 @@
+import { IGame } from '../components/Game/Game';
 import {
   GET_IMAGE_URLS,
   GET_GENRES,
@@ -37,6 +38,15 @@ export const initData = (data: any) => {
     type: INIT_STATE,
     payload: {
       data
+    }
+  }
+}
+
+export const getTopGamesToday = (genres: IGame[]) => {
+  return {
+    type: GET_GENRES,
+    payload: {
+      genres
     }
   }
 }

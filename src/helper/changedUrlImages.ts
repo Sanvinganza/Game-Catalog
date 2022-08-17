@@ -1,6 +1,6 @@
 import { IUrl } from "../redux/actions"
 
-export const chengedUrlImages = (urls: IUrl[]) => {
+export const changedUrlImages = (urls: IUrl[]) => {
   return urls.map((url: IUrl) => {
     return {
       id: url.id,

@@ -1,10 +1,11 @@
 import './game.scss';
 
 export interface IGame {
-  imageUrl: string,
+  imageUrl?: string,
   rating?: string,
   title?: string,
-  ageRating?: string
+  ageRating?: string,
+  storyline?: string
 }
 
 export function Game ({imageUrl, rating, title, ageRating}: IGame) {
