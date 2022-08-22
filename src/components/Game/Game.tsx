@@ -1,21 +1,14 @@
 import './game.scss';
+import { IGame } from '../../redux/reducer';
 
-export interface IGame {
-  imageUrl?: string,
-  rating?: string,
-  title?: string,
-  ageRating?: string,
-  storyline?: string
-}
-
-export function Game ({imageUrl, rating, title, ageRating}: IGame) {
+export function Game ({cover, age_rating, name, total_rating}: IGame) {
   return (
     <div className="game">
-      <div style={{backgroundImage: `url(${imageUrl})`}} className="game-image">
-        <div className="game-rating">{rating || '93.3'} </div>
-        <div className="game-age-rating">{ageRating || '+16'}</div>
+      <div style={{backgroundImage: `url(${cover.url})`|| 'url(../../images/poster.jpg)'}} className="game-image">
+        <div className="game-rating">{Math.round(total_rating? total_rating : 0)} </div>
+        <div className="game-age-rating">{age_rating || '+16'}</div>
       </div>
-      <div className="game-title">{title || 'Detroit: Become human'}</div>
+      <div className="game-title">{name || 'Detroit: Become human'}</div>
     </div>
   );
 }

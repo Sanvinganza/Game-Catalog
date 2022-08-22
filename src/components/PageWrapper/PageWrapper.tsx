@@ -1,12 +1,10 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFilter } from "../../api/fetchFilter";
-import { fetchGenres } from "../../api/fetchGenres";
-import { getGenres, IGenre } from "../../redux/actions";
+import { fetchGenres, fetchTopGames } from "../../api/index";
+import { IGenre } from "../../redux/actions";
 import { IState } from "../../redux/reducer";
-import { GameSection } from "../GameSection/GameSection";
-import "./game-body.scss";
+import { PageSection } from "../PageSection/PageSection";
+import "./page-wrapper.scss";
 
 export function GameBody () {
   const genres = useSelector((state: IState) => state.genres);
@@ -14,18 +12,17 @@ export function GameBody () {
 
   useEffect(() => {
     (async () => {
-      console.log('useEffect');
       dispatch(fetchGenres());
-      dispatch(fetchFilter('get', 'genres?fields=name', getGenres));
+      dispatch(fetchTopGames());
     })();
   }, []);
-  
+
   return (
-    <div className="game-sections">
+    <div className="page-wrapper">
       {genres.map((genre: IGenre) => 
-        <div className="game-section" key={genre.id}>
+        <div className="page-section" key={genre.id}>
           <a href="" className="game-genre">{genre.name}</a>
-          <GameSection />
+          <PageSection genre={genre}/>
         </div>)}
     </div>
   );
