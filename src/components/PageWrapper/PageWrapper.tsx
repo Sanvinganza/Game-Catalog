@@ -6,7 +6,7 @@ import { IState } from "../../redux/reducer";
 import { PageSection } from "../PageSection/PageSection";
 import "./page-wrapper.scss";
 
-export function GameBody () {
+export function PageWrapper () {
   const genres = useSelector((state: IState) => state.genres);
   const dispatch = useDispatch();
 
