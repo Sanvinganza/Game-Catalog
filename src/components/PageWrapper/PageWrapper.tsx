@@ -19,11 +19,7 @@ export function GameBody () {
 
   return (
     <div className="page-wrapper">
-      {genres.map((genre: IGenre) => 
-        <div className="page-section" key={genre.id}>
-          <a href="" className="game-genre">{genre.name}</a>
-          <PageSection genre={genre}/>
-        </div>)}
+      {genres.map((genre: IGenre) => <PageSection key={genre.id} genre={genre}/>)}
     </div>
   );
 }

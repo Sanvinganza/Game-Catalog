@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import { changeUrlImagesToScreenshot } from "../helper/changeUrlImagesToScreenshot";
-import { getGamesCarousel, getTopGamesToday } from "../redux/actions";
+import { getGamesCarousel } from "../redux/actions";
 import { IGame } from "../redux/reducer";
 
 interface IResponse{
@@ -16,8 +16,11 @@ export const fetchGameCarousel = () => (dispatch: Dispatch) => {
       'Client-ID': '50wszq1yqs93wi1xnpvvq5can2p947',
       'Authorization': 'Bearer h6cb5x1z8thq0l8rrj1l6ezhc2xr0x'
     },
-    data: `fields created_at,name,summary,cover.url,total_rating,age_ratings;
-      where cover.url != null;
+    data: `fields name,cover.url;
+      where cover.url != null & 
+      created_at < 1642882402 & 
+      created_at > 1611347207 & 
+      platforms.name = "PC (Microsoft Windows)";
     `,
   };
 

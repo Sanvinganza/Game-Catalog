@@ -1,12 +1,15 @@
-import { IGame } from '../../redux/reducer';
+export interface ISlide{
+  cover: {
+    id: number,
+    url: string
+  }
+}
 
-
-export function Slide ({total_rating, cover}: IGame) {
+export function Slide ({cover}: ISlide) {
   return (
     <>
-      <div className="slide">
-        <div style={{backgroundImage: `url(${cover.url})`|| 'url(../../images/poster.jpg)'}} className="game-image">
-          <div className="game-rating">{Math.round(total_rating? total_rating : 0)} </div>
+      <div className="slide-carousel">
+        <div style={{backgroundImage: `url(${cover.url})`|| 'url(../../images/poster.jpg)'}} className="slide-image">
         </div>
       </div>
     </>
