@@ -12,7 +12,6 @@ export interface IUrl {
 }
 
 export interface IGenre {
-  id: number,
   name: string
 }
 

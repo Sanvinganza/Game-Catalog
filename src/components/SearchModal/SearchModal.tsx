@@ -1,12 +1,11 @@
-import * as React from 'react';
-import { FilterWrapper } from '../FilterWrapper/FilterWrapper';
+import { SearchWrapper } from '../SearchWrapper/SearchWrapper';
 import { Header } from '../Header/Header';
 
 export function SearchPage () {
   return (
     <>
       <Header />
-      <FilterWrapper />
+      <SearchWrapper />
     </>
   );
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import './header.scss';
 
 export function Header () {
+
   return (
     <div className='header'>
       <div className="header-container">
@@ -16,9 +17,10 @@ export function Header () {
           </Link>
         </div>
         <div className="header--item">
-          <Link to="/search">
-            <div className="header--item-icon" style={{backgroundImage: 'url(../images/search.png)'}}></div>
-          </Link>
+
+          <div className="header--item-icon" style={{backgroundImage: 'url(../images/search.png)'}}>
+            
+          </div>
         </div>
         
       </div>
