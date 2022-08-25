@@ -1,25 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { SwiperSlide, Swiper } from 'swiper/react';
-import { fetchGameCarousel } from '../../../../api/fetchGameCarousel';
 import { IGame, IState } from '../../../../redux/reducer';
 import { Navigation } from "swiper";
 import '../index.scss';
 import 'swiper/scss/pagination';
 import { TopCarouselSlide } from './TopCarouselSlide';
+import { useSelector } from 'react-redux';
 
 export function Carousel () {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    (async () => {
-      console.log('gamesCarousel = ' +gamesCarousel);
-      dispatch(fetchGameCarousel());
-    })();
-  }, []);
-
   const gamesCarousel = useSelector((state: IState) => state.gamesCarousel);
-  
+
   return (
     <div className="carousel">
       <div className="carousel-header">

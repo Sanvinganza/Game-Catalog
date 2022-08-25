@@ -8,16 +8,6 @@
   color: aliceblue;
 }
 
-.page-wrapper {
-  width: 100%;
-  text-align: -webkit-center;
-}
-
-.app{
-  align-items: center;
-  background-color: #100e19;
-}
-
 video{
   position: fixed;
   right: 0;
@@ -25,9 +15,4 @@ video{
   min-width: 100%; 
   min-height: 100%;
   z-index: -1;
-}
-
-.swiper{
-  max-width: 1280px;
-  margin-top: 10px;
 }

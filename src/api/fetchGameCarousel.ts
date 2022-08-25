@@ -26,8 +26,6 @@ export const fetchGameCarousel = () => (dispatch: Dispatch) => {
 
   axios(config)
     .then((response: IResponse) => {
-      console.log(response.data);
-
       dispatch(getGamesCarousel(response.data.map((game: IGame) => {
         if(game.cover) return {
           ...game,

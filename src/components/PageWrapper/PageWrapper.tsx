@@ -8,7 +8,7 @@ interface IPageWrapper {
 export function PageWrapper ({titles}: IPageWrapper) {
   return (
     <div className="page-wrapper">
-      {titles.map((title: string) => <PageSection key={title} title={title}/>)}
+      {titles?.map((title: string) => <PageSection key={title} title={title}/>)}
     </div>
   );
 }

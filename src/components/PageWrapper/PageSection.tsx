@@ -9,9 +9,9 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/effect-fade';
-import { isDesktop, isLargeDesktop, isMobile } from '../../helper/constants';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { fetchTopGames } from '../../api';
+import { isDesktop_size, isLargeDesktop_size, isMobile_size } from '../../helper/constants';
 
 interface IPageSection {
   title: string
@@ -20,6 +20,10 @@ interface IPageSection {
 export function PageSection ({title}: IPageSection) {
   const dispatch = useDispatch();
   const topGames = useSelector((state: IState) => state.topRatingGames);
+  const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
+  const isMobile = useMediaQuery(isMobile_size);
+  const isDesktop = useMediaQuery(isDesktop_size);
+
   useEffect(() => {
     (async () => {
       console.log('PageSection '+topGames);
@@ -39,17 +43,20 @@ export function PageSection ({title}: IPageSection) {
       <a href="" className="game-genre">{title}</a>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        slidesPerView={useMediaQuery(isLargeDesktop)?
-          4.1 : useMediaQuery(isDesktop)?
-            3.01:useMediaQuery(isMobile)? 
+        slidesPerView={isLargeDesktop?
+          4.1 : isDesktop?
+            3.01 : isMobile? 
               2: 1}
-        watchSlidesProgress={true}
         loop={true}
         scrollbar={{ draggable: true }}
       >
         {topGames?.map((gameByGenre: IGame) => 
           <SwiperSlide key={gameByGenre.id}>
-            <Game name={gameByGenre.name} total_rating={gameByGenre.total_rating} cover={gameByGenre.cover}/>
+            <Game 
+              name={gameByGenre.name} 
+              total_rating={gameByGenre.total_rating} 
+              cover={gameByGenre.cover}
+            />
           </SwiperSlide>)}
       </Swiper>
     </div>
