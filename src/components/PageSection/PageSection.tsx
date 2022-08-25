@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { IGame, IState } from '../../redux/reducer';
-import { IGenre } from '../../redux/actions';
 import './page-section.scss';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -13,10 +12,10 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/effect-fade';
 
 interface IPageSection {
-  genre: IGenre
+  title: string
 }
 
-export function PageSection ({genre}: IPageSection) {
+export function PageSection ({title}: IPageSection) {
   // const dispatch = useDispatch();
 
   const isDesktop = useMediaQuery('(min-width: 960px)');
@@ -37,10 +36,11 @@ export function PageSection ({genre}: IPageSection) {
   //   if(Object.keys(obj).includes(genre.name)) return obj;
   //   return null;
   // }));
+
   
   return (
-    <div className="page-section" key={genre.id}>
-      <a href="" className="game-genre">{genre.name}</a>
+    <div className="page-section">
+      <a href="" className="game-genre">{title}</a>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         slidesPerView={isLargeDesktop?4.1:isDesktop?3.01:isMobile? 2: 1}
