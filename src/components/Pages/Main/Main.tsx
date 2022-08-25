@@ -1,7 +1,7 @@
-import { Carousel } from "./TopCarousel/TopCarousel";
 import { Header } from "../../common/Header";
-import { PageWrapper } from "./PageWrapper/PageWrapper";
+import { PageWrapper } from "../../PageWrapper/PageWrapper";
 import "./index.scss";
+import { Carousel } from "./TopCarousel/TopCarousel";
 
 export const Main = () => {
   const titles = ['Top rating', 'best in 2021', 'best in 2022',

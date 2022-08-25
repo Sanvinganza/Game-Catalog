@@ -1,23 +1,19 @@
-import "./App.scss";
-import { PageWrapper } from "./components/PageWrapper/PageWrapper";
-import { Header } from "./components/Header/Header";
-import { Carousel } from "./components/Carousel/Carousel";
+import "./index.scss";
+import { Header } from "./components/common/Header";
 
 const App = () => {
   const titlesArray = [
-    {name: 'Games with high raiting'}, 
-    {name: 'Recommend for you'},
-    {name: 'Best games for PC'}, 
-    {name: 'New games'}, 
-    {name: 'Popular games'}
+    'Games with high raiting', 
+    'Recommend for you',
+    'Best games for PC', 
+    'New games', 
+    'Popular games'
   ];
 
   return(
     <div className="app">
       <video src="./images/videoBg.mp4" autoPlay loop muted/>
       <Header />
-      <Carousel />
-      <PageWrapper titles={titlesArray}/>
     </div>
   );
 };

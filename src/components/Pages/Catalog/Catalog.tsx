@@ -4,12 +4,14 @@ import { fetchGenres } from '../../../api';
 import { IGenre } from '../../../redux/actions';
 import { IState } from '../../../redux/reducer';
 import { Header } from '../../common/Header';
-import { PageWrapper } from '../Main/PageWrapper/PageWrapper';
+import { PageWrapper } from '../../PageWrapper/PageWrapper';
 
 export function Catalog () {
   const genres = useSelector((state: IState) => state.genres)
     .map((genre: IGenre) => genre.name);
+
   const dispatch = useDispatch();
+  
   useEffect(() => {
     (async () => {
       dispatch(fetchGenres());

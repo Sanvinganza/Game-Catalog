@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { fetchGameCarousel } from '../../../../api/fetchGameCarousel';
 import { IGame, IState } from '../../../../redux/reducer';
-import { TopCarouselSlide } from './TopCarouselSlide';
 import { Navigation } from "swiper";
 import '../index.scss';
 import 'swiper/scss/pagination';
+import { TopCarouselSlide } from './TopCarouselSlide';
 
 export function Carousel () {
   const dispatch = useDispatch();

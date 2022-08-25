@@ -1,24 +1,14 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchTopGames } from "../../api/index";
-import { IGenre as ITitle } from "../../redux/actions";
-import { PageSection } from "../PageSection/PageSection";
-import "./page-wrapper.scss";
+import { PageSection } from "./PageSection";
+import "./index.scss";
 
 interface IPageWrapper {
-  titles: ITitle[]
+  titles: string[]
 }
 
 export function PageWrapper ({titles}: IPageWrapper) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTopGames());
-  }, []);
-
   return (
     <div className="page-wrapper">
-      {titles.map((title: ITitle) => <PageSection key={title.name} title={title.name}/>)}
+      {titles.map((title: string) => <PageSection key={title} title={title}/>)}
     </div>
   );
 }

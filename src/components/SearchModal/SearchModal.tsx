@@ -1,11 +1,10 @@
-import { SearchWrapper } from '../SearchWrapper/SearchWrapper';
-import { Header } from '../Header/Header';
+import { Header } from '../common/Header';
 
 export function SearchPage () {
   return (
     <>
       <Header />
-      <SearchWrapper />
+      Search modal
     </>
   );
 }
