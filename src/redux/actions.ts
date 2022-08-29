@@ -1,5 +1,4 @@
 import {
-  GET_GENRES,
   GET_GAMES_BY_GENRE,
   GET_TOP_RATING_GAMES,
   GET_GAME_CAROUSEL
@@ -13,15 +12,6 @@ export interface IUrl {
 
 export interface IGenre {
   name: string
-}
-
-export const getGenres = (genres: IGenre[]) => {
-  return {
-    type: GET_GENRES,
-    payload: {
-      genres
-    }
-  }
 }
 
 export const getTopGamesToday = (games: IGame[]) => {

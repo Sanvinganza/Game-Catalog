@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchGameCarousel } from "../../../api/fetchGameCarousel";
-import { isMobile_size } from "../../../helper/constants";
+import { isMobile_size, titles } from "../../../helper/constants";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 import { Header } from "../../common/Header";
 import { PageWrapper } from "../../PageWrapper/PageWrapper";
@@ -9,13 +9,6 @@ import "./index.scss";
 import { Carousel } from "./TopCarousel/TopCarousel";
 
 export const Main = () => {
-  const titles = [
-    'Games with high raiting', 
-    'Recommend for you',
-    'Best games for PC', 
-    'New games', 
-    'Popular games'
-  ];
   const isMobile = useMediaQuery(isMobile_size);
   const dispatch = useDispatch();
 

@@ -246,3 +246,10 @@ export const genres = [
       name: "Point-and-click"
   }
 ];
+export const titles = [
+  { id: 1, name: 'Recommend for you' },
+  { id: 2, name: 'Games with high raiting' }, 
+  { id: 3, name: 'Best games for PC' }, 
+  { id: 4, name: 'New games' }, 
+  { id: 5, name: 'Popular games' }
+];

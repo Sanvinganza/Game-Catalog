@@ -2,7 +2,6 @@ import { IGenre } from './actions';
 import {
   GET_GAMES_BY_GENRE,
   GET_GAME_CAROUSEL,
-  GET_GENRES,
   GET_TOP_RATING_GAMES,
 } from './actions.type';
 
@@ -13,7 +12,7 @@ export interface ICover {
 
 export interface IGame {
   id?: number,
-  name?: string,
+  name: string,
   age_rating?: number,
   summary?: string,
   created_at?: number,
@@ -26,7 +25,6 @@ export interface IGameByGenre {
 }
 
 export interface IState{
-  genres: IGenre[],
   topRatingGames: IGame[],
   gamesByGenre: IGameByGenre[],
   gamesCarousel: IGame[]
@@ -42,21 +40,15 @@ export interface IAction {
 }
 
 const initialState: IState = {
-  genres: [],
   topRatingGames: [],
   gamesByGenre: [],
   gamesCarousel: []
 }
 
 export const rootReducer = (state: IState = initialState, action: IAction) => {
-  console.log(state)
+  console.log('state :', state);
 
   switch (action.type) {
-    case GET_GENRES: 
-      return {
-        ...state,
-        genres: [...action.payload.genres]
-      }
     case GET_TOP_RATING_GAMES: 
       return {
         ...state,
