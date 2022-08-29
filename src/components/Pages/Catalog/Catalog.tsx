@@ -5,6 +5,8 @@ import { IGenre } from '../../../redux/actions';
 import { IState } from '../../../redux/reducer';
 import { Header } from '../../common/Header';
 import { PageWrapper } from '../../PageWrapper/PageWrapper';
+import { FilterWrapper } from './FilterWrapper/FilterWrapper';
+import "./index.scss";
 
 export function Catalog () {
   const genres = useSelector((state: IState) => state.genres)
@@ -22,6 +24,7 @@ export function Catalog () {
     <>
       <video src="./images/video.mp4" autoPlay loop muted/>
       <Header />
+      <FilterWrapper />
       <PageWrapper titles={genres}/>
     </>
   );

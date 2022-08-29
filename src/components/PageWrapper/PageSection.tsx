@@ -26,18 +26,10 @@ export function PageSection ({title}: IPageSection) {
 
   useEffect(() => {
     (async () => {
-      console.log('PageSection '+topGames);
       dispatch(fetchTopGames());
     })();
   }, []);
-  
-  // const gamesByGenre = useSelector((state: IState) => state.gamesByGenre);
-  // console.log('gamesByGenre1 = ' + gamesByGenre);
-  // console.log('gamesByGenre = ' +gamesByGenre.filter((obj: IGameByGenre) => {
-  //   if(Object.keys(obj).includes(genre.name)) return obj;
-  //   return null;
-  // }));
-  
+    
   return (
     <div className="page-section">
       <a href="" className="game-genre">{title}</a>
