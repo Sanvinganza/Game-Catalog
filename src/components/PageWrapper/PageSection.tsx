@@ -31,7 +31,11 @@ export function PageSection ({title}: IPageSection) {
   }, []);
     
   return (
-    <div className="page-section">
+    <div className="page-section" 
+      style={{maxWidth: isLargeDesktop?
+        '1280px' : isDesktop?
+          '960px' : isMobile? 
+            '560px': '300px'}}>
       <a href="" className="game-genre">{title}</a>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}

@@ -38,6 +38,7 @@
   height: 150px;
   &-inner {
     display: flex;
+    flex-wrap: wrap;
   }
 }
 
