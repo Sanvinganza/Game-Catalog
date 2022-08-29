@@ -20,8 +20,11 @@
   font-size: 2em;
 }
 
-@media (min-width: 560px) {
+@media (max-width: 560px) {
   .page-section {
     margin: 10px 0;
+  }
+  .game-genre {
+    font-size: 1.5em;
   }
 }

@@ -20,6 +20,7 @@ interface IPageSection {
 export function PageSection ({title}: IPageSection) {
   const dispatch = useDispatch();
   const topGames = useSelector((state: IState) => state.topRatingGames);
+  
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);

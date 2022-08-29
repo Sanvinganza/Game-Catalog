@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
+import { changeUrlImagesToCover } from "../helper/changeUrlImagesToCover";
 import { changeUrlImagesToScreenshot } from "../helper/changeUrlImagesToScreenshot";
 import { getGamesCarousel } from "../redux/actions";
 import { IGame } from "../redux/reducer";
@@ -29,7 +30,7 @@ export const fetchGameCarousel = () => (dispatch: Dispatch) => {
       dispatch(getGamesCarousel(response.data.map((game: IGame) => {
         if(game.cover) return {
           ...game,
-          cover: changeUrlImagesToScreenshot(game.cover)
+          cover: window.screen.width > 560? changeUrlImagesToScreenshot(game.cover) : changeUrlImagesToCover(game.cover)
         }
         
         return game;

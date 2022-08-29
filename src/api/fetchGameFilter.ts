@@ -20,8 +20,8 @@ export const fetchGameFilter = (method: string, endpoint: string, action: Functi
 
   axios(config)
     .then((response: IResponse) => {
-      console.log('fetchGameFilter = method: '+ method +', data :' + response.data);
-
+      console.log('fetchGameFilter :' + response.data);
+      
       dispatch(action(response.data.map((game: IGame) => {
         if(game.cover) return {
           ...game,

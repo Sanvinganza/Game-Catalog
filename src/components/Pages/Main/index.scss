@@ -1,21 +1,3 @@
-@media (min-width: 560px) {
-  .game-genre {
-    font-size: 2.2em;
-  }
-}
-
-@media (min-width: 960px) {
-  .game-genre {
-    font-size: 2.6em;
-  }
-}
-
-@media (min-width: 1280px) {
-  .game-genre {
-    font-size: 3em;
-  }
-}
-
 .carousel {
   display: flex;
   flex-direction: column;
@@ -53,4 +35,16 @@
 .slide-image {
   height: 529px;
   border-radius: 15px;
+}
+
+@media (max-width: 960px) {
+  .slide-image {
+    height: 352px;
+  }
+  .swiper-carousel {
+    height: 450px;
+  }
+  .carousel > .carousel-header {
+    font-size: 3em;
+  }
 }

@@ -10,8 +10,8 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path="catalog" element={<Main />} />
-        <Route path="/" element={<Catalog />}/>
+        <Route path="/" element={<Main />} />
+        <Route path="catalog" element={<Catalog />}/>
       </Routes>
     </BrowserRouter>
   </Provider>

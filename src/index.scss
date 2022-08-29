@@ -5,7 +5,7 @@
   padding: 0; 
   font-family: 'Roboto Slab', serif;
   text-shadow: 1px 1px 1px #000;
-  color: aliceblue;
+  color: rgb(240, 246, 252);
 }
 
 video{
@@ -15,4 +15,8 @@ video{
   min-width: 100%; 
   min-height: 100%;
   z-index: -1;
+}
+
+a {
+  color: rgb(240, 246, 252);
 }
