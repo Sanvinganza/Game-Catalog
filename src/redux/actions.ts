@@ -1,8 +1,9 @@
 import {
-  GET_IMAGE_URLS,
-  GET_GENRES,
-  INIT_STATE
+  GET_GAMES_BY_GENRE,
+  GET_TOP_RATING_GAMES,
+  GET_GAME_CAROUSEL
 } from './actions.type';
+import { IGame } from './reducer';
 
 export interface IUrl {
   id: number,
@@ -10,33 +11,34 @@ export interface IUrl {
 }
 
 export interface IGenre {
-  id: number,
   name: string
 }
 
-export const getImageUrls = (urls: IUrl[]) => {
+export const getTopGamesToday = (games: IGame[]) => {
   return {
-    type: GET_IMAGE_URLS,
-    payload: { 
-      urls
+    type: GET_TOP_RATING_GAMES,
+    payload: {
+      games
     }
   }
 }
 
-export const getGenres = (genres: IGenre[]) => {
+export const getGamesByGenre = (genre: string, games: IGame[]) => {
   return {
-    type: GET_GENRES,
+    type: GET_GAMES_BY_GENRE,
     payload: {
-      genres
+      genre,
+      games
     }
   }
 }
 
-export const initData = (data: any) => {
+
+export const getGamesCarousel = (games: IGame[]) => {
   return {
-    type: INIT_STATE,
+    type: GET_GAME_CAROUSEL,
     payload: {
-      data
+      games
     }
   }
 }

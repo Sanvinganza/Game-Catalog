@@ -1,69 +1,71 @@
-import { IGenre, IUrl } from './actions';
+import { IGenre } from './actions';
 import {
-  GET_GENRES,
-  GET_IMAGE_URLS,
+  GET_GAMES_BY_GENRE,
+  GET_GAME_CAROUSEL,
   GET_TOP_RATING_GAMES,
-  INIT_STATE
 } from './actions.type';
 
-interface IGame {
+export interface ICover {
+  id: number,
+  url: string
+}
+
+export interface IGame {
+  id?: number,
   name: string,
-  age_rating: number,
-  storyline: string,
-  created_at: number,
-  poster: string,
-  rating: number
+  age_rating?: number,
+  summary?: string,
+  created_at?: number,
+  cover: ICover,
+  total_rating?: number
+}
+
+export interface IGameByGenre {
+  [key: string]: IGame[]
 }
 
 export interface IState{
-  urls: IUrl[],
-  genres: IGenre[],
-  initialData: any,
-  topRatingGames: IGame[]
+  topRatingGames: IGame[],
+  gamesByGenre: IGameByGenre[],
+  gamesCarousel: IGame[]
 }
 
 export interface IAction {
   type: string,
   payload: {
-    urls: IUrl[],
     genres: IGenre[],
-    data: any,
-    topRatingGames: IGame[]
+    games: IGame[],
+    genre: string
   }
 }
 
 const initialState: IState = {
-  urls: [{
-    id: 1,
-    url: '//images.igdb.com/igdb/image/upload/t_thumb/w5fcogetb88owqbryp9j.jpg'
-  }],
-  genres: [
-  ],
   topRatingGames: [],
-  initialData: []
+  gamesByGenre: [],
+  gamesCarousel: []
 }
 
 export const rootReducer = (state: IState = initialState, action: IAction) => {
+  console.log('state :', state);
+
   switch (action.type) {
-    case GET_IMAGE_URLS : 
-      return {
-        ...state,
-        urls: [...action.payload.urls]
-      }
-    case GET_GENRES: 
-      return {
-        ...state,
-        genres: [...action.payload.genres]
-      }
-    case INIT_STATE:
-      return {
-        ...state,
-        initialData: [...action.payload.data]
-      }
     case GET_TOP_RATING_GAMES: 
       return {
         ...state,
-        topRatingGames: [...action.payload.topRatingGames]
+        topRatingGames: [...action.payload.games]
+      }
+    case GET_GAMES_BY_GENRE: 
+      return {
+        ...state,
+        gamesByGenre: [
+          ...state.gamesByGenre,
+          { [action.payload.genre]: [...action.payload.games] }
+        ]
+      }
+    case GET_GAME_CAROUSEL: 
+      return {
+        ...state,
+        gamesCarousel: [...action.payload.games]
       }
     default: return state;
   }

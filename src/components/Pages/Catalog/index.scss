@@ -1,0 +1,77 @@
+@import '~antd/dist/antd.css';
+
+.filter-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  &__footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    &-button {
+      color: rgb(156, 156, 156);
+      font-size: 1.2em;
+      padding: 5px;
+      margin: 5px 10px;
+      max-width: max-content;
+      border-radius: 4px;
+    }
+  }
+}
+
+.filter-wrapper__footer-button:hover {
+  color: #ffffff;
+}
+
+.filter-wrapper__container {
+  border-radius: 15px;
+  width: 100%;
+  max-width: max-content;
+  background-color: rgba(31,27,46,.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 150px;
+  &-inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.dropdown-button__icon {
+  width: 32px;
+  height: 32px;
+  background-size: 32px;
+}
+
+.dropdown-button {
+  margin: 8px 10px;
+  height: 32px;
+}
+
+.dropdown-button--inner {
+  display: flex;
+  padding: 5px;
+  max-width: 150px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-dropdown-menu {
+  display: flex;
+  max-width: 500px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  background-color: rgba(31,27,46,.88);
+  :hover {
+    color: rgb(84, 2, 160);
+  }
+  .ant-dropdown-menu-item {
+    width: 250px;
+    color: rgb(242, 230, 253);
+  }
+}
