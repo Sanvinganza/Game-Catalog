@@ -12,6 +12,7 @@ import 'swiper/scss/effect-fade';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { fetchTopGames } from '../../api';
 import { isDesktop_size, isLargeDesktop_size, isMobile_size } from '../../helper/constants';
+import { fetchTopGamesRequest } from '../../redux/actions/getTopGames';
 
 interface IPageSection {
   title: string
@@ -20,17 +21,16 @@ interface IPageSection {
 export function PageSection ({title}: IPageSection) {
   const dispatch = useDispatch();
   const topGames = useSelector((state: IState) => state.topRatingGames);
-  
+  const state = useSelector((state: IState) => state);
+  console.log("state = ",state);
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);
 
   useEffect(() => {
-    (async () => {
-      dispatch(fetchTopGames());
-    })();
+    dispatch(fetchTopGamesRequest());
   }, []);
-    
+  
   return (
     <div className="page-section" 
       style={{maxWidth: isLargeDesktop?

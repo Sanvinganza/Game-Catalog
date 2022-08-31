@@ -45,7 +45,7 @@ const initialState: IState = {
   gamesCarousel: []
 }
 
-export const rootReducer = (state: IState = initialState, action: IAction) => {
+export const rootReducer = (state = initialState, action: IAction) => {
   console.log('state :', state);
 
   switch (action.type) {
