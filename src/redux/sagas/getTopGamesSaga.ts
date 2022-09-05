@@ -4,7 +4,7 @@ import { changeUrlImagesToCover } from "../../helper/changeUrlImagesToCover";
 import { changeUrlImagesToScreenshot } from "../../helper/changeUrlImagesToScreenshot";
 import { EGetTopGames } from "../actions/actionTypes/getTopGamesTypes";
 import { fetchTopGamesFailure, fetchTopGamesSuccess } from "../actions/getTopGames";
-import { IGame } from "../reducer";
+import { IGame } from "../types/types";
 
 const config = {
   method: 'post',
@@ -27,15 +27,15 @@ interface IResponse {
 
 const getTopGames = () => axios(config)
   .then((response: IResponse) => {
-    console.log(response)
-    return response.data.map((game: IGame) => {
+    return {
+      ...response,
+      data: response.data.map((game: IGame) => {
       if (game.cover) return {
         ...game,
         cover: window.screen.width > 560 ? changeUrlImagesToScreenshot(game.cover) : changeUrlImagesToCover(game.cover)
       }
-
       return game;
-    })
+    })}
   })
   .catch((error: Error) => {
     console.log(error);
@@ -44,7 +44,10 @@ const getTopGames = () => axios(config)
 function* fetchTopGamesSaga() {
   try {
     const response: AxiosResponse<IGame[]> = yield call(getTopGames);
-    yield put(fetchTopGamesSuccess({ games: response.data }));
+    
+    yield put(fetchTopGamesSuccess({
+      games: response.data
+    }));
   } catch (e) {
     if (e instanceof Error) {
       yield put(
@@ -55,7 +58,6 @@ function* fetchTopGamesSaga() {
     } else {
       console.log('Unexpected error', e)
     }
-
   }
 }
 

@@ -1,36 +1,29 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Game } from '../common/Game';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
-import { IGame, IState } from '../../redux/reducer';
 import './index.scss';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/effect-fade';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import { fetchTopGames } from '../../api';
 import { isDesktop_size, isLargeDesktop_size, isMobile_size } from '../../helper/constants';
-import { fetchTopGamesRequest } from '../../redux/actions/getTopGames';
+import { IGame, IState } from '../../redux/types/types';
 
 interface IPageSection {
   title: string
 }
 
 export function PageSection ({title}: IPageSection) {
-  const dispatch = useDispatch();
-  const topGames = useSelector((state: IState) => state.topRatingGames);
-  const state = useSelector((state: IState) => state);
-  console.log("state = ",state);
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);
-
-  useEffect(() => {
-    dispatch(fetchTopGamesRequest());
-  }, []);
   
+  const { games } = useSelector(
+    (state: IState) => state.topGames
+  );
+
   return (
     <div className="page-section" 
       style={{maxWidth: isLargeDesktop?
@@ -41,13 +34,13 @@ export function PageSection ({title}: IPageSection) {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         slidesPerView={isLargeDesktop?
-          4.1 : isDesktop?
-            3.01 : isMobile? 
+          4 : isDesktop?
+            3 : isMobile? 
               2: 1}
         loop={true}
         scrollbar={{ draggable: true }}
       >
-        {topGames?.map((gameByGenre: IGame) => 
+        {games.map((gameByGenre: IGame) => 
           <SwiperSlide key={gameByGenre.id}>
             <Game 
               name={gameByGenre.name} 

@@ -20,9 +20,7 @@ export interface IGameByGenre {
   [key: string]: IGame[]
 }
 export interface IState{
-  topRatingGames: IGame[],
-  gamesByGenre: IGameByGenre[],
-  gamesCarousel: IGame[]
+  topGames: IGetTopGamesState,
 }
 export interface IAction {
   type: string,

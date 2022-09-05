@@ -1,13 +1,13 @@
 import { SwiperSlide, Swiper } from 'swiper/react';
-import { IGame, IState } from '../../../../redux/reducer';
 import { Navigation } from "swiper";
 import '../index.scss';
 import 'swiper/scss/pagination';
 import { TopCarouselSlide } from './TopCarouselSlide';
 import { useSelector } from 'react-redux';
+import { IGame, IState } from '../../../../redux/types/types';
 
 export function Carousel () {
-  const gamesCarousel = useSelector((state: IState) => state.gamesCarousel);
+  const { games } = useSelector((state: IState) => state.topGames);
 
   return (
     <div className="carousel">
@@ -27,7 +27,7 @@ export function Carousel () {
         modules={[Navigation]}
         className="swiper-carousel"
       >
-        {gamesCarousel?.map((slide: IGame) => 
+        {games?.map((slide: IGame) => 
           <SwiperSlide key={slide.id}>
             <TopCarouselSlide cover={slide.cover}/>
           </SwiperSlide>)}

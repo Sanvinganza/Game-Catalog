@@ -1,10 +1,10 @@
 import { EGetTopGames } from "./actionTypes/getTopGamesTypes";
-import { 
+import {
   IFetchTopGamesFailure,
   IFetchTopGamesFailurePayload,
   IFetchTopGamesRequest,
   IFetchTopGamesSuccess,
-  IFetchTopGamesSuccessPayload 
+  IFetchTopGamesSuccessPayload
 } from "../types/types";
 
 export const fetchTopGamesRequest = (
@@ -14,10 +14,12 @@ export const fetchTopGamesRequest = (
 
 export const fetchTopGamesSuccess = (
   payload: IFetchTopGamesSuccessPayload
-): IFetchTopGamesSuccess => ({
-  type: EGetTopGames.GET_TOP_GAMES_SUCCESS,
-  payload
-});
+): IFetchTopGamesSuccess => {
+  return ({
+    type: EGetTopGames.GET_TOP_GAMES_SUCCESS,
+    payload
+  })
+};
 
 export const fetchTopGamesFailure = (
   payload: IFetchTopGamesFailurePayload

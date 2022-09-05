@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchGameCarousel } from "../../../api/fetchGameCarousel";
 import { isMobile_size, titles } from "../../../helper/constants";
 import useMediaQuery from "../../../hooks/useMediaQuery";
+import { fetchTopGamesRequest } from "../../../redux/actions/getTopGames";
 import { Header } from "../../common/Header";
 import { PageWrapper } from "../../PageWrapper/PageWrapper";
 import "./index.scss";
@@ -13,11 +13,9 @@ export const Main = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      dispatch(fetchGameCarousel());
-    })();
+    dispatch(fetchTopGamesRequest());
   }, []);
-
+  
   return(
     <div className="app">
       <video src={isMobile? "./images/videoBg.mp4" :"./images/videobgsmall.mp4"} autoPlay loop muted/>
