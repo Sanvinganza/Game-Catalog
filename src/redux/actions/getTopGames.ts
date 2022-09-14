@@ -1,11 +1,5 @@
-import { EGetTopGames } from "./actionTypes/getTopGamesTypes";
-import {
-  IFetchTopGamesFailure,
-  IFetchTopGamesFailurePayload,
-  IFetchTopGamesRequest,
-  IFetchTopGamesSuccess,
-  IFetchTopGamesSuccessPayload
-} from "../types/types";
+import { IGame } from "../types/types";
+
 
 export const fetchTopGamesRequest = (
 ): IFetchTopGamesRequest => ({
@@ -18,7 +12,7 @@ export const fetchTopGamesSuccess = (
   return ({
     type: EGetTopGames.GET_TOP_GAMES_SUCCESS,
     payload
-  })
+  });
 };
 
 export const fetchTopGamesFailure = (
@@ -27,3 +21,29 @@ export const fetchTopGamesFailure = (
   type: EGetTopGames.GET_TOP_GAMES_FAILURE,
   payload
 });
+
+
+
+export enum EGetTopGames {
+  GET_TOP_GAMES_REQUEST = "GET_TOP_GAMES_REQUEST",
+  GET_TOP_GAMES_SUCCESS = "GET_TOP_GAMES_SUCCESS",
+  GET_TOP_GAMES_FAILURE = "GET_TOP_GAMES_FAILURE"
+}
+
+export interface IFetchTopGamesSuccessPayload {
+  games: IGame[]
+}
+export interface IFetchTopGamesSuccess {
+  type: typeof EGetTopGames.GET_TOP_GAMES_SUCCESS,
+  payload: IFetchTopGamesSuccessPayload
+}
+export interface IFetchTopGamesFailure {
+  type: typeof EGetTopGames.GET_TOP_GAMES_FAILURE,
+  payload: IFetchTopGamesFailurePayload
+}
+export interface IFetchTopGamesFailurePayload {
+  error: string
+}
+export interface IFetchTopGamesRequest {
+  type: typeof EGetTopGames.GET_TOP_GAMES_REQUEST,
+}

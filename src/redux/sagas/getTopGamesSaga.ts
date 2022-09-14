@@ -2,8 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { changeUrlImagesToCover } from "../../helper/changeUrlImagesToCover";
 import { changeUrlImagesToScreenshot } from "../../helper/changeUrlImagesToScreenshot";
-import { EGetTopGames } from "../actions/actionTypes/getTopGamesTypes";
-import { fetchTopGamesFailure, fetchTopGamesSuccess } from "../actions/getTopGames";
+import { EGetTopGames, fetchTopGamesFailure, fetchTopGamesSuccess } from "../actions/getTopGames";
 import { IGame } from "../types/types";
 
 const config = {
@@ -30,15 +29,12 @@ const getTopGames = () => axios(config)
     return {
       ...response,
       data: response.data.map((game: IGame) => {
-      if (game.cover) return {
-        ...game,
-        cover: window.screen.width > 560 ? changeUrlImagesToScreenshot(game.cover) : changeUrlImagesToCover(game.cover)
-      }
-      return game;
-    })}
-  })
-  .catch((error: Error) => {
-    console.log(error);
+        if (game.cover) return {
+          ...game,
+          cover: window.screen.width > 560 ? changeUrlImagesToScreenshot(game.cover) : changeUrlImagesToCover(game.cover)
+        };
+        return game;
+      })};
   });
 
 function* fetchTopGamesSaga() {

@@ -1,5 +1,5 @@
+import { IGame } from '../../redux/types/types';
 import './index.scss';
-import { IGame } from '../../redux/reducer';
 
 export function Game ({cover, age_rating, name, total_rating}: IGame) {
   return (

@@ -1,4 +1,7 @@
-import { IUrl } from "../redux/actions"
+interface IUrl{
+  id: number,
+  url: string
+}
 
 export const changeUrlImagesToCover = (url: IUrl) => {
   return {

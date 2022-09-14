@@ -4,10 +4,15 @@ import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from "./sagas";
 import topGamesReducer from "./reducers/topGamesReducer";
 import { combineReducers } from "redux";
+import genresReducer from "./reducers/genresReducer";
 
 const sagaMiddleware = createSagaMiddleware();
-const rootReducer = combineReducers({topGames: topGamesReducer});
-export type RootState = ReturnType<typeof rootReducer>;
+
+const rootReducer= combineReducers({
+  topGames: topGamesReducer,
+  genres: genresReducer
+});
+
 
 const store = configureStore({
   reducer: rootReducer,
@@ -17,3 +22,5 @@ const store = configureStore({
 sagaMiddleware.run(rootSaga);
 
 export default store;
+
+export type IState = ReturnType<typeof rootReducer>;

@@ -1,13 +1,13 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import { changeUrlImagesToCover } from "../helper/changeUrlImagesToCover";
-import { IGame } from "../redux/reducer";
+import { IGame } from "../redux/types/types";
 
 interface IResponse{
   data: IGame[]
 }
 
-export const fetchGameFilter = (method: string, endpoint: string, action: Function, data?: string) => (dispatch: Dispatch) => {
+export const fetchGameFilter = (method: string, endpoint: string, action: any, data?: string) => (dispatch: Dispatch) => {
   const config = {
     method: method,
     url: 'v4/' + endpoint,

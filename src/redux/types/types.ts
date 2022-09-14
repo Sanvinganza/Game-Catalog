@@ -1,4 +1,6 @@
-import { EGetTopGames } from "../actions/actionTypes/getTopGamesTypes";
+import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
+import { IFetchTopGamesFailure, IFetchTopGamesRequest, IFetchTopGamesSuccess } from "../actions/getTopGames";
+import { IGetTopGamesState } from "../reducers/topGamesReducer";
 
 export interface ICover {
   id: number,
@@ -30,29 +32,12 @@ export interface IAction {
     genre: string
   }
 }
-export interface IFetchTopGamesSuccessPayload {
-  games: IGame[]
-}
-export interface IFetchTopGamesSuccess {
-  type: typeof EGetTopGames.GET_TOP_GAMES_SUCCESS,
-  payload: IFetchTopGamesSuccessPayload
-}
-export interface IFetchTopGamesFailure {
-  type: typeof EGetTopGames.GET_TOP_GAMES_FAILURE,
-  payload: IFetchTopGamesFailurePayload
-}
-export interface IFetchTopGamesFailurePayload {
-  error: string
-}
-export interface IFetchTopGamesRequest {
-  type: typeof EGetTopGames.GET_TOP_GAMES_REQUEST,
-}
-export interface IGetTopGamesState {
-  pending: boolean,
-  games: IGame[],
-  error: string | null
-}
 export type TGetTopGamesActions = 
   | IFetchTopGamesRequest
   | IFetchTopGamesFailure
   | IFetchTopGamesSuccess;
+  
+export type TGetGenresActions =
+  | IFetchGenresRequest
+  | IFetchGenresSuccess
+  | IFetchGenresFailure;
