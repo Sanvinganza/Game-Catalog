@@ -2,13 +2,13 @@ import { Dropdown, Menu, Space } from "antd";
 import { useState } from "react";
 import { CheckboxItem } from "./CheckboxItem";
 
-export interface IDropdownButtonFilter_Item {
+export interface IDropdownButtonFilterItem {
   id: number,
   name: string
 }
 
-export function DropdownButtonFilter(items: IDropdownButtonFilter_Item[], name: string) {
-  const menuItems = items.map((item: IDropdownButtonFilter_Item) => {
+export function DropdownButtonFilter(items: IDropdownButtonFilterItem[], name: string) {
+  const menuItems = items.map((item: IDropdownButtonFilterItem) => {
     return {
       key: item.id,
       label: (<CheckboxItem item={item} />)

@@ -1,5 +1,5 @@
 import { EGetTopGames } from "../actions/getTopGames";
-import { IGame, TGetTopGamesActions } from "../types/types"
+import { IGame, TGetTopGamesActions } from "../types/types";
 
 const initialState: IGetTopGamesState = {
   pending: false,

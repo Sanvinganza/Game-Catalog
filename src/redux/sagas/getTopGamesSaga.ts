@@ -1,41 +1,9 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { changeUrlImagesToCover } from "../../helper/changeUrlImagesToCover";
-import { changeUrlImagesToScreenshot } from "../../helper/changeUrlImagesToScreenshot";
+import { getTopGames } from "../../api/getTopGames";
 import { EGetTopGames, fetchTopGamesFailure, fetchTopGamesSuccess } from "../actions/getTopGames";
 import { IGame } from "../types/types";
 
-const config = {
-  method: 'post',
-  url: 'v4/games',
-  headers: {
-    'Client-ID': '50wszq1yqs93wi1xnpvvq5can2p947',
-    'Authorization': 'Bearer h6cb5x1z8thq0l8rrj1l6ezhc2xr0x'
-  },
-  data: `fields name,cover.url;
-    where cover.url != null & 
-    created_at < 1642882402 & 
-    created_at > 1611347207 & 
-    platforms.name = "PC (Microsoft Windows)";
-  `,
-};
-
-interface IResponse {
-  data: IGame[]
-}
-
-const getTopGames = () => axios(config)
-  .then((response: IResponse) => {
-    return {
-      ...response,
-      data: response.data.map((game: IGame) => {
-        if (game.cover) return {
-          ...game,
-          cover: window.screen.width > 560 ? changeUrlImagesToScreenshot(game.cover) : changeUrlImagesToCover(game.cover)
-        };
-        return game;
-      })};
-  });
 
 function* fetchTopGamesSaga() {
   try {
@@ -52,7 +20,7 @@ function* fetchTopGamesSaga() {
         })
       );
     } else {
-      console.log('Unexpected error', e)
+      console.log('Unexpected error', e);
     }
   }
 }

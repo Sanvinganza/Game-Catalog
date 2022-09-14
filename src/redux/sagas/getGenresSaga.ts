@@ -1,17 +1,8 @@
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
+import { getGenres } from "../../api/getGenres";
 import { EGetGenres, fetchGenresFailure, fetchGenresSuccess } from "../actions/getGenres";
 import { IGenre } from "../types/types";
-
-
-const getGenres = () => axios({
-  method: 'get',
-  url: 'v4/genres?fields=name&limit=100',
-  headers: {
-    'Client-ID': '50wszq1yqs93wi1xnpvvq5can2p947',
-    'Authorization': 'Bearer h6cb5x1z8thq0l8rrj1l6ezhc2xr0x'
-  }
-});
 
 function* fetchGenresSaga() {
   try {

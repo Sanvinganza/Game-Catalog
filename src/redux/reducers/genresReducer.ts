@@ -1,5 +1,5 @@
 import { EGetGenres } from "../actions/getGenres";
-import { IGenre, TGetGenresActions } from "../types/types"
+import { IGenre, TGetGenresActions } from "../types/types";
 
 const initialState: IGetGenresState = {
   pending: false,
