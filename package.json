@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "dev": "webpack serve --mode development --progress --config ./webpack.config.development.js",
-    "prod": "webpack --mode production --config ./webpack.config.production.js",
+    "prod": "webpack serve --mode production --config ./webpack.config.production.js",
     "lint": "eslint src/**/*.tsx",
     "test": "jest",
     "lint:fix": "eslint src/**/*.tsx --fix"
@@ -29,6 +29,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.20.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-jest": "^26.7.0",

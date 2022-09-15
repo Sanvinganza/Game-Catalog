@@ -11,7 +11,7 @@ interface IResponse {
 export const getTopGames = () => axios(getTopGamesConfig)
   .then((response: IResponse
   ) => {
-    return {
+    return {  
       ...response,
       data: response.data.map((game: IGame) => {
         if (game.cover) return {
