@@ -102,6 +102,17 @@ $open-sans: 'Open Sans',sans-serif;
     }
   }
 }
+.search-wrapper {
+  display: flex;
+
+}
+
+.search-modal {
+  color: #121212;
+  font-size: 1.1em;
+  background-color: #550077;
+  transition: all 1s ease-out 0s;
+}
 
 @media (min-width: 560px) {
   .game-title {

@@ -247,7 +247,7 @@ export const genres = [
   }
 ];
 export const titles = [
-  { id: 1, name: 'Recommend for you' },
+  { id: 1, name: 'Recommend today' },
   { id: 2, name: 'Games with high raiting' }, 
   { id: 3, name: 'Best games for PC' }, 
   { id: 4, name: 'New games' }, 
