@@ -1,4 +1,5 @@
 import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
+import { IFetchHighRatingGamesFailure, IFetchHighRatingGamesRequest, IFetchHighRatingGamesSuccess } from "../actions/getHighRatingGames";
 import { IFetchRecommendTodayGamesFailure, IFetchRecommendTodayGamesRequest, IFetchRecommendTodayGamesSuccess } from "../actions/getRecommendTodayGames";
 import { IFetchTopGamesFailure, IFetchTopGamesRequest, IFetchTopGamesSuccess } from "../actions/getTopGames";
 
@@ -35,7 +36,6 @@ export type TGetTopGamesActions =
   | IFetchTopGamesRequest
   | IFetchTopGamesFailure
   | IFetchTopGamesSuccess;
-  
 export type TGetGenresActions =
   | IFetchGenresRequest
   | IFetchGenresSuccess
@@ -44,3 +44,7 @@ export type TGetRecommendTodayGamesActions =
   | IFetchRecommendTodayGamesRequest
   | IFetchRecommendTodayGamesFailure
   | IFetchRecommendTodayGamesSuccess;
+export type TGetHighRatingGamesActions =
+  | IFetchHighRatingGamesRequest
+  | IFetchHighRatingGamesFailure
+  | IFetchHighRatingGamesSuccess;
