@@ -19,6 +19,7 @@ export const Main = () => {
     <>
       <video src={isMobile? "./images/videoBg.mp4" :"./images/videobgsmall.mp4"} autoPlay loop muted/>
       <Carousel />
+      
       <PageWrapper titles={titles}/>
     </>
   );
