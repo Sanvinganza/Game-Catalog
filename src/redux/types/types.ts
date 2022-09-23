@@ -1,4 +1,5 @@
 import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
+import { IFetchRecommendTodayGamesFailure, IFetchRecommendTodayGamesRequest, IFetchRecommendTodayGamesSuccess } from "../actions/getRecommendTodayGames";
 import { IFetchTopGamesFailure, IFetchTopGamesRequest, IFetchTopGamesSuccess } from "../actions/getTopGames";
 import { IGetTopGamesState } from "../reducers/topGamesReducer";
 
@@ -13,7 +14,9 @@ export interface IGame {
   summary?: string,
   created_at?: number,
   cover: ICover,
-  total_rating?: number
+  total_rating?: number,
+  company?: string,
+  genres?: IGenre[]
 }
 export interface IGenre {
   name: string
@@ -41,3 +44,7 @@ export type TGetGenresActions =
   | IFetchGenresRequest
   | IFetchGenresSuccess
   | IFetchGenresFailure;
+export type TGetRecommendTodayGamesActions =
+  | IFetchRecommendTodayGamesRequest
+  | IFetchRecommendTodayGamesFailure
+  | IFetchRecommendTodayGamesSuccess;
