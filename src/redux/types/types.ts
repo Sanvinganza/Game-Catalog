@@ -24,9 +24,6 @@ export interface IGenre {
 export interface IGameByGenre {
   [key: string]: IGame[]
 }
-export interface IState{
-  topGames: IGetTopGamesState,
-}
 export interface IAction {
   type: string,
   payload: {

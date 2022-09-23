@@ -7,12 +7,11 @@ export const getTopGamesConfig = {
   },
   data: `fields name,cover.url;
     where cover.url != null & 
-    created_at < 1642882402 & 
-    created_at > 1611347207 & 
-    rating != null &
-    rating > 75 &
-    platforms.name = "PC (Microsoft Windows)";
-  `,
+      created_at < 1642882402 & 
+      created_at > 1611347207 & 
+      rating != null &
+      rating > 75;
+  `
 };
 export const getRecommendTodayGamesConfig = {
   method: 'post',
@@ -22,11 +21,10 @@ export const getRecommendTodayGamesConfig = {
     'Authorization': process.env['AUTHORIZATION'] as string
   },
   data: `fields name,cover.url;
-    where cover.url != null & 
-    created_at < 1642882402 & 
-    created_at > 1611347207 & 
-    rating != null &
-    rating > 75 &
-    platforms.name = "PC (Microsoft Windows)";
-  `,
-}
+    where cover.url != null &
+      rating != null &
+      aggregated_rating > 60 &
+      rating > 60 &
+      created_at > 1632936969;
+  `
+};

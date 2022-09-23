@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import { Game } from '../common/Game';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
@@ -9,20 +8,17 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/effect-fade';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { isDesktop_size, isLargeDesktop_size, isMobile_size } from '../../helper/constants';
-import { IGame, IState } from '../../redux/types/types';
+import { IGame } from '../../redux/types/types';
 
 interface IPageSection {
-  title: string
+  title: string,
+  games: IGame[]
 }
 
-export function PageSection ({title}: IPageSection) {
+export function PageSection ({title, games}: IPageSection) {
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);
-  
-  const { games } = useSelector(
-    (state: IState) => state.topGames
-  );
 
   return (
     <div className="page-section" 

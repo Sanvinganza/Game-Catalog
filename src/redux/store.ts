@@ -5,14 +5,15 @@ import { rootSaga } from "./sagas";
 import topGamesReducer from "./reducers/topGamesReducer";
 import { combineReducers } from "redux";
 import genresReducer from "./reducers/genresReducer";
+import recommendTodayGamesReducer from "./reducers/recommendTodayReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer= combineReducers({
   topGames: topGamesReducer,
-  genres: genresReducer
+  genres: genresReducer,
+  recommendTodayGames: recommendTodayGamesReducer
 });
-
 
 const store = configureStore({
   reducer: rootReducer,
