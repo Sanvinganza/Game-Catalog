@@ -8,6 +8,7 @@ import { Carousel } from "./TopCarousel/TopCarousel";
 import "./index.scss";
 import { PageSection } from "../../PageWrapper/PageSection";
 import { IState } from "../../../redux/store";
+import { fetchRecommendTodayGamesRequest } from "../../../redux/actions/getRecommendTodayGames";
 
 export const Main = () => {
   const isMobile = useMediaQuery(isMobile_size);
@@ -17,6 +18,7 @@ export const Main = () => {
   );
   useEffect(() => {
     dispatch(fetchTopGamesRequest());
+    dispatch(fetchRecommendTodayGamesRequest());
   }, []);
   return(
     <>
