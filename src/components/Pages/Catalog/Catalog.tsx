@@ -4,7 +4,6 @@ import { isMobile_size } from '../../../helper/constants';
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import { fetchGenresRequest } from '../../../redux/actions/getGenres';
 import { IState } from '../../../redux/store';
-import { Header } from '../../common/Header';
 import { PageWrapper } from '../../PageWrapper/PageWrapper';
 import { FilterWrapper } from './FilterWrapper/FilterWrapper';
 import "./index.scss";
@@ -14,8 +13,6 @@ export function Catalog () {
   const dispatch = useDispatch();
   const { genres } = useSelector((state: IState) => state.genres);
 
-  console.log(genres);
-  
   useEffect(() => {
     dispatch(fetchGenresRequest());
   },[]);
@@ -23,7 +20,6 @@ export function Catalog () {
   return (
     <>
       <video src={isMobile? "./images/video.mp4" :"./images/videobgsmall.mp4"} autoPlay loop muted/>
-      <Header />
       <FilterWrapper />
       <PageWrapper titles={genres}/>
     </>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { changeUrlImagesToCover } from "../helper/changeUrlImagesToCover";
-import { changeUrlImagesToScreenshot } from "../helper/changeUrlImagesToScreenshot";
 import { IGame } from "../redux/types/types";
 import { getHighRatingGamesConfig } from "./constants";
 
@@ -16,7 +15,7 @@ export const getHighRatingGames = () => axios(getHighRatingGamesConfig)
       data: response.data.map((game: IGame) => {
         if (game.cover) return {
           ...game,
-          cover: window.screen.width > 560 ? changeUrlImagesToScreenshot(game.cover) : changeUrlImagesToCover(game.cover)
+          cover: changeUrlImagesToCover(game.cover)
         };
         return game;
       })};

@@ -1,3 +1,4 @@
+import { IFetchGameByIdFailure, IFetchGameByIdRequest, IFetchGameByIdSuccess } from "../actions/getGameById";
 import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
 import { IFetchHighRatingGamesFailure, IFetchHighRatingGamesRequest, IFetchHighRatingGamesSuccess } from "../actions/getHighRatingGames";
 import { IFetchRecommendTodayGamesFailure, IFetchRecommendTodayGamesRequest, IFetchRecommendTodayGamesSuccess } from "../actions/getRecommendTodayGames";
@@ -7,6 +8,17 @@ export interface ICover {
   id: number,
   url: string
 }
+export interface IPlatform {
+  id: number,
+  name: string
+}
+export interface ICompany {
+  id: number,
+  company: {
+    name: string,
+    id: number
+  }
+}
 export interface IGame {
   id?: number,
   name: string,
@@ -15,10 +27,13 @@ export interface IGame {
   created_at?: number,
   cover: ICover,
   total_rating?: number,
-  company?: string,
-  genres?: IGenre[]
+  involved_companies?: ICompany[],
+  genres?: IGenre[],
+  platforms?: IPlatform[],
+  rating?: number
 }
 export interface IGenre {
+  id?: number,
   name: string
 }
 export interface IGameByGenre {
@@ -48,3 +63,7 @@ export type TGetHighRatingGamesActions =
   | IFetchHighRatingGamesRequest
   | IFetchHighRatingGamesFailure
   | IFetchHighRatingGamesSuccess;
+export type TGetGameByIdActions =
+  | IFetchGameByIdRequest
+  | IFetchGameByIdSuccess
+  | IFetchGameByIdFailure;

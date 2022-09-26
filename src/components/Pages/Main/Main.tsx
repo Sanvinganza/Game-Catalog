@@ -32,10 +32,12 @@ export const Main = () => {
     <>
       <video src={isMobile? "./images/videoBg.mp4" :"./images/videobgsmall.mp4"} autoPlay loop muted/>
       <Carousel />
+
       <div className="page-wrapper">
         <PageSection games={recommendTodayGames.games} title={'Recommend today'} />
         <PageSection games={highRatingGames.games} title={'Games with high raiting'} />
       </div>
+      
       <PageWrapper  titles={titles}/>
     </>
   );

@@ -6,6 +6,7 @@ import { Catalog } from "./components/Pages/Catalog/Catalog";
 import store from "./redux/store";
 import './index.scss';
 import Layout from "./components/common/Layout";
+import GamePage from "./components/Pages/GamePage/GamePage";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -13,10 +14,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Layout  />}>
           <Route index element={<Main />} />
-          <Route path="catalog" element={<Catalog />}>
-            
-          </Route>
-          <Route path="watch"></Route>
+          <Route path="catalog" element={<Catalog />} />
+          <Route path="/games/:id" element={<GamePage />}/>
         </Route>
       </Routes>
     </BrowserRouter>

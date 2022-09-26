@@ -9,6 +9,7 @@ import 'swiper/scss/effect-fade';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { isDesktop_size, isLargeDesktop_size, isMobile_size } from '../../helper/constants';
 import { IGame } from '../../redux/types/types';
+import { Link } from 'react-router-dom';
 
 interface IPageSection {
   title: string,
@@ -38,11 +39,14 @@ export function PageSection ({title, games}: IPageSection) {
       >
         {games.map((gameByGenre: IGame) => 
           <SwiperSlide key={gameByGenre.id}>
-            <Game 
-              name={gameByGenre.name} 
-              total_rating={gameByGenre.total_rating} 
-              cover={gameByGenre.cover}
-            />
+            <Link to={`/games/${gameByGenre.id}`}>
+              <Game 
+                name={gameByGenre.name} 
+                total_rating={gameByGenre.total_rating} 
+                cover={gameByGenre.cover}
+                id={gameByGenre.id}
+              />
+            </Link>
           </SwiperSlide>)}
       </Swiper>
     </div>

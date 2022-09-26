@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 export function Header () {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className='header'>
