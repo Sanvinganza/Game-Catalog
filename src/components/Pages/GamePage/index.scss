@@ -27,29 +27,48 @@
   align-items: center;
   padding: 15px 5px;
   &-logo {
-    width: 555px;
+    width: 264px;
     height: 322px;
     background-color: rgb(172, 172, 172);
   }
   &-info {
+    .year,
+    .summary,
+    .rating {
+      display: flex;
+    }
     width: 90%;
     & > *{
       margin: 5px;
       align-items: center;
     }
     .genres,
+    .companies,
     .platforms{
       display: flex;
       flex-wrap: wrap;
       .genre,
+      .company,
       .platform {
         background-color: rgb(180, 3, 3);
         border-radius: 15px;
         padding: 3px 10px;
-        margin: 0 5px;
+        margin: 2px 5px;
       }
     }
-
   }
-
+}
+.discription {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: aliceblue;
+  font-style: italic;
+  font-weight: bolder;
+}
+.title {
+  font-weight: 600;
+  color:rgb(172, 172, 172);
+  font-size: 1.2em;
+}
+.summary {
+  align-items: flex-start;
 }

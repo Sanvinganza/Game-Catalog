@@ -42,6 +42,7 @@
 @media (max-width: 960px) {
   .slide-image {
     height: 352px;
+    width: 550px;
   }
   .swiper-carousel {
     height: 450px;
@@ -49,4 +50,10 @@
   .carousel > .carousel-header {
     font-size: 3em;
   }
+}
+@media (max-width: 560px) {
+  .slide-image {
+    width: 300px;
+  }
+  
 }

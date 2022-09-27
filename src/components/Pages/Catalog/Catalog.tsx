@@ -5,7 +5,6 @@ import useMediaQuery from '../../../hooks/useMediaQuery';
 import { fetchGenresRequest } from '../../../redux/actions/getGenres';
 import { IState } from '../../../redux/store';
 import { PageWrapper } from '../../PageWrapper/PageWrapper';
-import { FilterWrapper } from './FilterWrapper/FilterWrapper';
 import "./index.scss";
 
 export function Catalog () {
@@ -20,7 +19,6 @@ export function Catalog () {
   return (
     <>
       <video src={isMobile? "./images/video.mp4" :"./images/videobgsmall.mp4"} autoPlay loop muted/>
-      <FilterWrapper />
       <PageWrapper titles={genres}/>
     </>
   );

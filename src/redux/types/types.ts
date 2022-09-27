@@ -36,9 +36,6 @@ export interface IGenre {
   id?: number,
   name: string
 }
-export interface IGameByGenre {
-  [key: string]: IGame[]
-}
 export interface IAction {
   type: string,
   payload: {

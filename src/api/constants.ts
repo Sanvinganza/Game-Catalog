@@ -5,7 +5,9 @@ export const getTopGamesConfig = {
     'Client-ID': process.env['CLIENT-ID'] as string,
     'Authorization': process.env['AUTHORIZATION'] as string
   },
-  data: `fields name,cover.url;
+  data: `fields created_at,name,summary,
+  cover.url,age_ratings.rating,rating,platforms.name,
+  genres.name,involved_companies.company.name;
     where cover.url != null & 
       created_at < 1642882402 & 
       created_at > 1611347207 & 
@@ -20,7 +22,9 @@ export const getRecommendTodayGamesConfig = {
     'Client-ID': process.env['CLIENT-ID'] as string,
     'Authorization': process.env['AUTHORIZATION'] as string
   },
-  data: `fields name,cover.url,total_rating;
+  data: `fields created_at,name,summary,
+  cover.url,age_ratings.rating,rating,platforms.name,
+  genres.name,involved_companies.company.name;
     where cover.url != null &
       rating != null &
       aggregated_rating > 60 &
@@ -35,7 +39,9 @@ export const getHighRatingGamesConfig = {
     'Client-ID': process.env['CLIENT-ID'] as string,
     'Authorization': process.env['AUTHORIZATION'] as string
   },
-  data: `fields name,cover.url,total_rating;
+  data: `fields created_at,name,summary,
+  cover.url,age_ratings.rating,rating,platforms.name,
+  genres.name,involved_companies.company.name;
     where cover.url != null &
       rating != null &
       aggregated_rating > 60 &

@@ -20,7 +20,6 @@ export function PageSection ({title, games}: IPageSection) {
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);
-
   return (
     <div className="page-section" 
       style={{maxWidth: isLargeDesktop?
@@ -37,14 +36,14 @@ export function PageSection ({title, games}: IPageSection) {
         loop={true}
         scrollbar={{ draggable: true }}
       >
-        {games.map((gameByGenre: IGame) => 
-          <SwiperSlide key={gameByGenre.id}>
-            <Link to={`/games/${gameByGenre.id}`}>
+        {games.map((game: IGame) => 
+          <SwiperSlide key={game.id}>
+            <Link to={`/games/${game.id}`}>
               <Game 
-                name={gameByGenre.name} 
-                total_rating={gameByGenre.total_rating} 
-                cover={gameByGenre.cover}
-                id={gameByGenre.id}
+                name={game.name} 
+                rating={game.rating} 
+                cover={game.cover}
+                id={game.id}
               />
             </Link>
           </SwiperSlide>)}

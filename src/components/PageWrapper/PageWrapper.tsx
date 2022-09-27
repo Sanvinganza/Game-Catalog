@@ -16,6 +16,7 @@ export function PageWrapper ({titles}: IPageWrapper) {
   const { games } = useSelector(
     (state: IState) => state.topGames
   );
+
   return (
     <div className="page-wrapper">
       {titles?.map((title: ITitle) => <PageSection games={games} key={title.id} title={title.name}/>)}

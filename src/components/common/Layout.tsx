@@ -9,7 +9,6 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer className="container">
-        GitHub
       </footer>
     </div>
   );

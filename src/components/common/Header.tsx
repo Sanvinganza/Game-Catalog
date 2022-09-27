@@ -1,6 +1,7 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FilterWrapper } from '../Pages/Catalog/FilterWrapper/FilterWrapper';
 import './index.scss';
 
 export function Header () {
@@ -32,13 +33,15 @@ export function Header () {
                 width: '32px',
                 marginLeft: '25px',
                 backgroundSize: 'cover',
-                backgroundImage: 'url(../images/close.png)'
+                backgroundImage: 'url(../images/close.png)',
+                alignItems: 'center'
               }}></div>}
           >
             <span className="input">
               <input type="text" placeholder="game name..."/>
               <span></span>	
             </span>
+            <FilterWrapper />
           </Modal>
         </div>
         <img className='header-logo' src="./images/logo.png" />
