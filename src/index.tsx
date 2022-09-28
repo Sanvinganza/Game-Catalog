@@ -17,7 +17,7 @@ ReactDOM.render(
           <Route index element={<Main />} />
           <Route path="catalog" element={<Catalog />} />
           <Route path="games" element={<GamesPage />} />
-          <Route path="/games/:id" element={<GamePage />}/>
+          <Route path="/games/:id" element={<GamePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

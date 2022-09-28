@@ -13,11 +13,12 @@ export interface IPlatform {
   name: string
 }
 export interface ICompany {
+  name: string,
+  id: number
+}
+export interface ICompanyInfo {
   id: number,
-  company: {
-    name: string,
-    id: number
-  }
+  company: ICompany
 }
 export interface IGame {
   id?: number,
@@ -27,7 +28,7 @@ export interface IGame {
   created_at?: number,
   cover: ICover,
   total_rating?: number,
-  involved_companies?: ICompany[],
+  involved_companies?: ICompanyInfo[],
   genres?: IGenre[],
   platforms?: IPlatform[],
   rating?: number

@@ -1,16 +1,18 @@
 import { useSelector } from "react-redux";
-import { IState } from "../../../../redux/store";
-import { DropdownButtonGenres, DropdownButtonPlatforms, DropdownButtonRaiting, DropdownButtonThemes, DropdownButtonYears } from "./DropdownButtons";
+import { IState } from "../../redux/store";
+import { DropdownButtonPlatforms, DropdownButtonRaiting, DropdownButtonThemes, DropdownButtonYears } from "./DropdownButtons";
+import { DropdownButtonFilter } from "./DropdownButtons/DropdownButtonFilter";
 
 export function FilterWrapper() {
   const { genres } = useSelector((state: IState) => state.genres);
-
+  const DropdownButtonGenres = DropdownButtonFilter(genres, 'Genres');
+  
   return (
     <>
       <div className='filter-wrapper'>
         <div className="filter-wrapper__container">
           <div className="filter-wrapper__container-inner">
-            <DropdownButtonGenres genres={genres}/>
+            <DropdownButtonGenres />
             <DropdownButtonRaiting />
             <DropdownButtonPlatforms />
             <DropdownButtonThemes />

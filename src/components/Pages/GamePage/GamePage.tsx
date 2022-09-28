@@ -4,7 +4,7 @@ import { changeUrlImagesToScreenshot } from "../../../helper/changeUrlImagesToSc
 import { getAllGamesFromState } from "../../../helper/getAllGamesFromState";
 import { unixDataToData } from "../../../helper/unixDataToData";
 import { IState } from "../../../redux/store";
-import { ICompany, IGame, IGenre, IPlatform } from "../../../redux/types/types";
+import { ICompanyInfo, IGame, IGenre, IPlatform } from "../../../redux/types/types";
 import "./index.scss";
 
 export default () => {
@@ -52,8 +52,8 @@ export default () => {
             <div className="companies">
               <div className="title">Company: </div> 
               {game.involved_companies.length !== 0? 
-                game.involved_companies.map((company: ICompany) => 
-                  <div className="company">{company.company.name}</div>  
+                game.involved_companies.map((companyInfo: ICompanyInfo) => 
+                  <div key={companyInfo.id} className="company">{companyInfo.company.name}</div>  
                 )
                 : null}
             </div>

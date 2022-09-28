@@ -12,6 +12,7 @@ import { fetchRecommendTodayGamesRequest } from "../../../redux/actions/getRecom
 import { fetchHighRatingGamesRequest } from "../../../redux/actions/getHighRatingGames";
 import { IGetHighRatingGamesState } from "../../../redux/reducers/highRatingGamesReducer";
 import { IGetRecommendTodayGamesState } from "../../../redux/reducers/recommendTodayReducer";
+import { fetchGenresRequest } from "../../../redux/actions/getGenres";
 
 export const Main = () => {
   const isMobile = useMediaQuery(isMobile_size);
@@ -27,6 +28,7 @@ export const Main = () => {
     dispatch(fetchTopGamesRequest());
     dispatch(fetchRecommendTodayGamesRequest());
     dispatch(fetchHighRatingGamesRequest());
+    dispatch(fetchGenresRequest()); 
   }, []);
   return(
     <>

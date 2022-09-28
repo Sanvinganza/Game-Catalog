@@ -75,3 +75,9 @@
     color: rgb(242, 230, 253);
   }
 }
+
+@media (max-width: 560px) {
+  .ant-dropdown-menu-item {
+    width: 140px;
+  }
+}

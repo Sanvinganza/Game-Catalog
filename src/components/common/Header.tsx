@@ -1,7 +1,7 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FilterWrapper } from '../Pages/Catalog/FilterWrapper/FilterWrapper';
+import { FilterWrapper } from '../FilterWrapper/FilterWrapper';
 import './index.scss';
 
 export function Header () {
@@ -37,8 +37,12 @@ export function Header () {
                 alignItems: 'center'
               }}></div>}
           >
-            <span className="input">
-              <input type="text" placeholder="game name..."/>
+            <span className="input" style={{width: '100%'}}>
+              <input 
+                style={{width: '100%'}}
+                type="text" 
+                placeholder="game name..." 
+                autoFocus />
               <span></span>	
             </span>
             <FilterWrapper />
