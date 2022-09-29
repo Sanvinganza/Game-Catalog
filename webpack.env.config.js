@@ -5,6 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require('dotenv-webpack');
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
@@ -72,7 +73,7 @@ const moduleProdConfig = {
     {
       test: /\.scss$/,
       use: [
-        MiniCssExtractPlugin.loader,
+        "style-loader",
         "css-loader",
         {
           loader: "postcss-loader",
@@ -111,6 +112,9 @@ const output = {
 };
 
 const pluginsDevConfig = [
+  new Dotenv({
+    path: './.env'
+  }),
   new HtmlWebpackPlugin({
     title: "MyGameStore",
     template: "./src/index.html",

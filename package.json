@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "dev": "webpack serve --mode development --progress --config ./webpack.config.development.js",
-    "prod": "webpack --mode production --config ./webpack.config.production.js",
+    "prod": "webpack serve --mode production --config ./webpack.config.production.js",
     "lint": "eslint src/**/*.tsx",
     "test": "jest",
     "lint:fix": "eslint src/**/*.tsx --fix"
@@ -29,6 +29,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.20.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-jest": "^26.7.0",
@@ -81,6 +82,7 @@
     "react-router-dom": "^6.3.0",
     "react-widgets": "^5.8.4",
     "redux": "^4.2.0",
+    "redux-saga": "^1.2.1",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
     "swiper": "^8.3.2"

@@ -1,36 +1,25 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Game } from '../common/Game';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
-import { IGame, IState } from '../../redux/reducer';
 import './index.scss';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import 'swiper/scss/effect-fade';
 import useMediaQuery from '../../hooks/useMediaQuery';
-import { fetchTopGames } from '../../api';
 import { isDesktop_size, isLargeDesktop_size, isMobile_size } from '../../helper/constants';
+import { IGame } from '../../redux/types/types';
+import { Link } from 'react-router-dom';
 
 interface IPageSection {
-  title: string
+  title: string,
+  games: IGame[]
 }
 
-export function PageSection ({title}: IPageSection) {
-  const dispatch = useDispatch();
-  const topGames = useSelector((state: IState) => state.topRatingGames);
-  
+export function PageSection ({title, games}: IPageSection) {
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);
-
-  useEffect(() => {
-    (async () => {
-      dispatch(fetchTopGames());
-    })();
-  }, []);
-    
   return (
     <div className="page-section" 
       style={{maxWidth: isLargeDesktop?
@@ -41,19 +30,22 @@ export function PageSection ({title}: IPageSection) {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         slidesPerView={isLargeDesktop?
-          4.1 : isDesktop?
-            3.01 : isMobile? 
+          4 : isDesktop?
+            3 : isMobile? 
               2: 1}
         loop={true}
         scrollbar={{ draggable: true }}
       >
-        {topGames?.map((gameByGenre: IGame) => 
-          <SwiperSlide key={gameByGenre.id}>
-            <Game 
-              name={gameByGenre.name} 
-              total_rating={gameByGenre.total_rating} 
-              cover={gameByGenre.cover}
-            />
+        {games.map((game: IGame) => 
+          <SwiperSlide key={game.id}>
+            <Link to={`/games/${game.id}`}>
+              <Game 
+                name={game.name} 
+                rating={game.rating} 
+                cover={game.cover}
+                id={game.id}
+              />
+            </Link>
           </SwiperSlide>)}
       </Swiper>
     </div>

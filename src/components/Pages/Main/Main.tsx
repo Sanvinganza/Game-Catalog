@@ -1,29 +1,46 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchGameCarousel } from "../../../api/fetchGameCarousel";
+import { useDispatch, useSelector } from "react-redux";
 import { isMobile_size, titles } from "../../../helper/constants";
 import useMediaQuery from "../../../hooks/useMediaQuery";
-import { Header } from "../../common/Header";
+import { fetchTopGamesRequest } from "../../../redux/actions/getTopGames";
 import { PageWrapper } from "../../PageWrapper/PageWrapper";
-import "./index.scss";
 import { Carousel } from "./TopCarousel/TopCarousel";
+import "./index.scss";
+import { PageSection } from "../../PageWrapper/PageSection";
+import { IState } from "../../../redux/store";
+import { fetchRecommendTodayGamesRequest } from "../../../redux/actions/getRecommendTodayGames";
+import { fetchHighRatingGamesRequest } from "../../../redux/actions/getHighRatingGames";
+import { IGetHighRatingGamesState } from "../../../redux/reducers/highRatingGamesReducer";
+import { IGetRecommendTodayGamesState } from "../../../redux/reducers/recommendTodayReducer";
+import { fetchGenresRequest } from "../../../redux/actions/getGenres";
 
 export const Main = () => {
   const isMobile = useMediaQuery(isMobile_size);
   const dispatch = useDispatch();
-
+  const recommendTodayGames: IGetRecommendTodayGamesState = useSelector(
+    (state: IState) => state.recommendTodayGames
+  );
+  const highRatingGames: IGetHighRatingGamesState = useSelector(
+    (state: IState) => state.highRatingGames
+  );
+  
   useEffect(() => {
-    (async () => {
-      dispatch(fetchGameCarousel());
-    })();
+    dispatch(fetchTopGamesRequest());
+    dispatch(fetchRecommendTodayGamesRequest());
+    dispatch(fetchHighRatingGamesRequest());
+    dispatch(fetchGenresRequest()); 
   }, []);
-
   return(
-    <div className="app">
+    <>
       <video src={isMobile? "./images/videoBg.mp4" :"./images/videobgsmall.mp4"} autoPlay loop muted/>
-      <Header />
       <Carousel />
-      <PageWrapper titles={titles}/>
-    </div>
+
+      <div className="page-wrapper">
+        <PageSection games={recommendTodayGames.games} title={'Recommend today'} />
+        <PageSection games={highRatingGames.games} title={'Games with high raiting'} />
+      </div>
+      
+      <PageWrapper  titles={titles}/>
+    </>
   );
 };

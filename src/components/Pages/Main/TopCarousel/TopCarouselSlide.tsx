@@ -4,7 +4,6 @@ export interface ISlide{
     url: string
   }
 }
-
 export function TopCarouselSlide ({cover}: ISlide) {
   return (
     <>
