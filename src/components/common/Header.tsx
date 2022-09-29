@@ -1,12 +1,12 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FilterWrapper } from '../FilterWrapper/FilterWrapper';
 import './index.scss';
 
 export function Header () {
   const [modalOpen, setModalOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <div className='header'>
       <div className="header-container">
@@ -41,7 +41,15 @@ export function Header () {
               <input 
                 style={{width: '100%'}}
                 type="text" 
-                placeholder="game name..." 
+                placeholder="game name..."
+                onKeyDown={(e) => {
+                  if(e.key === 'Enter') {
+                    setModalOpen(false);
+                    
+                    navigate('games');
+                    console.log(e.currentTarget.value);
+                  }
+                }}
                 autoFocus />
               <span></span>	
             </span>

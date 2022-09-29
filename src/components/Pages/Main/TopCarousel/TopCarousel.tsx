@@ -6,6 +6,7 @@ import { TopCarouselSlide } from './TopCarouselSlide';
 import { useSelector } from 'react-redux';
 import { IGame } from '../../../../redux/types/types';
 import { IState } from '../../../../redux/store';
+import { Link } from 'react-router-dom';
 
 export function Carousel () {
   const { games } = useSelector((state: IState) => state.topGames);
@@ -30,7 +31,9 @@ export function Carousel () {
       >
         {(games as IGame[]).map((slide: IGame) => 
           <SwiperSlide key={slide.id}>
-            <TopCarouselSlide cover={slide.cover}/>
+            <Link to={`/games/${slide.id}`}>
+              <TopCarouselSlide cover={slide.cover}/>
+            </Link>
           </SwiperSlide>)}
       </Swiper>
     </div>

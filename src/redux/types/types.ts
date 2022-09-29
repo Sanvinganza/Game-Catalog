@@ -20,6 +20,10 @@ export interface ICompanyInfo {
   id: number,
   company: ICompany
 }
+export interface IVideos {
+  name: string,
+  id: number
+}
 export interface IGame {
   id?: number,
   name: string,
@@ -31,7 +35,8 @@ export interface IGame {
   involved_companies?: ICompanyInfo[],
   genres?: IGenre[],
   platforms?: IPlatform[],
-  rating?: number
+  rating?: number,
+  videos?: IVideos
 }
 export interface IGenre {
   id?: number,

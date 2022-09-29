@@ -75,7 +75,6 @@ export default () => {
             </div>
 
             <div className="summary">
-              <div className="title">summary:&nbsp;</div>
               <div className="discription">{game.summary}</div>
             </div>
           </div>
