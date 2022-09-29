@@ -8,7 +8,10 @@ export const getTopGamesConfig = {
   data: `fields created_at,name,summary,
   cover.url,age_ratings.rating,rating,platforms.name,
   genres.name,involved_companies.company.name, videos;
-    where cover.url != null & 
+    where cover.url != null &
+      platforms != null &
+      genres != null &
+      involved_companies != null & 
       created_at < 1642882402 & 
       created_at > 1611347207 & 
       rating != null &
@@ -26,6 +29,9 @@ export const getRecommendTodayGamesConfig = {
   cover.url,age_ratings.rating,rating,platforms.name,
   genres.name,involved_companies.company.name, videos;
     where cover.url != null &
+      platforms != null &
+      genres != null &
+      involved_companies != null &
       rating != null &
       aggregated_rating > 60 &
       rating > 60 &
@@ -43,6 +49,9 @@ export const getHighRatingGamesConfig = {
   cover.url,age_ratings.rating,rating,platforms.name,
   genres.name,involved_companies.company.name, videos;
     where cover.url != null &
+      platforms != null &
+      genres != null &
+      involved_companies != null &
       rating != null &
       aggregated_rating > 60 &
       rating > 60;
@@ -59,6 +68,9 @@ export const getBestGamesForPCConfig = {
   cover.url,age_ratings.rating,rating,platforms.name,
   genres.name,involved_companies.company.name, videos;
     where cover.url != null &
+      platforms != null &
+      genres != null &
+      involved_companies != null &
       rating != null &
       aggregated_rating > 65 &
       rating > 65 & 
