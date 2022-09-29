@@ -1,4 +1,4 @@
-import { IFetchGameByIdFailure, IFetchGameByIdRequest, IFetchGameByIdSuccess } from "../actions/getGameById";
+import { IFetchBestGamesForPCFailure, IFetchBestGamesForPCRequest, IFetchBestGamesForPCSuccess } from "../actions/getBestGamesForPC";
 import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
 import { IFetchHighRatingGamesFailure, IFetchHighRatingGamesRequest, IFetchHighRatingGamesSuccess } from "../actions/getHighRatingGames";
 import { IFetchRecommendTodayGamesFailure, IFetchRecommendTodayGamesRequest, IFetchRecommendTodayGamesSuccess } from "../actions/getRecommendTodayGames";
@@ -66,7 +66,7 @@ export type TGetHighRatingGamesActions =
   | IFetchHighRatingGamesRequest
   | IFetchHighRatingGamesFailure
   | IFetchHighRatingGamesSuccess;
-export type TGetGameByIdActions =
-  | IFetchGameByIdRequest
-  | IFetchGameByIdSuccess
-  | IFetchGameByIdFailure;
+export type TGetBestGamesForPCActions =
+  | IFetchBestGamesForPCRequest
+  | IFetchBestGamesForPCSuccess
+  | IFetchBestGamesForPCFailure;

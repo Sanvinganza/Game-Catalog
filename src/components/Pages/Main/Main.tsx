@@ -13,6 +13,8 @@ import { fetchHighRatingGamesRequest } from "../../../redux/actions/getHighRatin
 import { IGetHighRatingGamesState } from "../../../redux/reducers/highRatingGamesReducer";
 import { IGetRecommendTodayGamesState } from "../../../redux/reducers/recommendTodayReducer";
 import { fetchGenresRequest } from "../../../redux/actions/getGenres";
+import { IGetBestGamesForPCState } from "../../../redux/reducers/bestGamesForPCReducer";
+import { fetchBestGamesForPCRequest } from "../../../redux/actions/getBestGamesForPC";
 
 export const Main = () => {
   const isMobile = useMediaQuery(isMobile_size);
@@ -23,12 +25,16 @@ export const Main = () => {
   const highRatingGames: IGetHighRatingGamesState = useSelector(
     (state: IState) => state.highRatingGames
   );
+  const bestGamesForPC: IGetBestGamesForPCState = useSelector(
+    (state: IState) => state.bestGamesForPC
+  );
   
   useEffect(() => {
     dispatch(fetchTopGamesRequest());
     dispatch(fetchRecommendTodayGamesRequest());
     dispatch(fetchHighRatingGamesRequest());
-    dispatch(fetchGenresRequest()); 
+    dispatch(fetchGenresRequest());
+    dispatch(fetchBestGamesForPCRequest());
   }, []);
   return(
     <>
@@ -38,6 +44,7 @@ export const Main = () => {
       <div className="page-wrapper">
         <PageSection games={recommendTodayGames.games} title={'Recommend today'} />
         <PageSection games={highRatingGames.games} title={'Games with high raiting'} />
+        <PageSection games={bestGamesForPC.games} title={'Best games For PC'} />
       </div>
       
       <PageWrapper  titles={titles}/>
