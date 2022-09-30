@@ -34,7 +34,6 @@ export const getRecommendTodayGamesConfig = {
       involved_companies != null &
       rating != null &
       aggregated_rating > 60 &
-      rating > 60 &
       created_at > 1632936969;
   `
 };
@@ -53,7 +52,6 @@ export const getHighRatingGamesConfig = {
       genres != null &
       involved_companies != null &
       rating != null &
-      aggregated_rating > 60 &
       rating > 60;
   `
 };
@@ -72,8 +70,7 @@ export const getBestGamesForPCConfig = {
       genres != null &
       involved_companies != null &
       rating != null &
-      aggregated_rating > 65 &
-      rating > 65 & 
+      rating > 40 & 
       platforms.name = "PC (Microsoft Windows)";
   `  
 };

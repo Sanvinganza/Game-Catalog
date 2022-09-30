@@ -1,6 +1,6 @@
 import { Game } from '../common/Game';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Scrollbar, A11y } from "swiper";
+import { Navigation } from "swiper";
 import './index.scss';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -28,7 +28,7 @@ export function PageSection ({title, games}: IPageSection) {
             '560px': '300px'}}>
       <a href="" className="game-genre">{title}</a>
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation]}
         slidesPerView={isLargeDesktop?
           4 : isDesktop?
             3 : isMobile? 

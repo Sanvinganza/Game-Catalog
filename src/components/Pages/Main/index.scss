@@ -11,10 +11,11 @@
 
 .swiper-slide {
   text-align: -webkit-center;
+  text-align: -moz-center;
   display: flex;
   justify-content: center;
   & > a {
-    width: 100%;
+    width: 80%;
   }
 }
 

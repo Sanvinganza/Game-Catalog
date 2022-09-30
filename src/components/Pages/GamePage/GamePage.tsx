@@ -34,7 +34,11 @@ export default () => {
         <div className="gamepage-title">{game.name}</div>
         <div className="gamepage-card">
           <div className="gamepage-card-logo"
-            style={{backgroundImage: `url(${game.cover.url.replace('t_screenshot_med', 't_cover_big')})`}}
+            style={{backgroundImage: `url(
+              ${game.cover.url
+      .replace('t_screenshot_med', 't_cover_big')
+      .replace('t_screenshot_big', 't_cover_big')})
+      `}}
           ></div>
           <div className="gamepage-card-info">
 

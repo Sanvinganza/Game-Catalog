@@ -14,13 +14,14 @@
    background-color: rgb(96, 0, 121);
    border-radius: 15px;
    margin: 30px;
+   margin-bottom: calc(100vh - 700px);
   }
   &-title {
+    text-align: center;
     font-size: 2em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 }
-
 .gamepage-card {
   display: flex;
   flex-direction: column;

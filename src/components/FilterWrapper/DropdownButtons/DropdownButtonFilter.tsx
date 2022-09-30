@@ -1,7 +1,6 @@
 import { Dropdown, Menu, Space } from "antd";
 import { useState } from "react";
 import { CheckboxItem } from "./CheckboxItem";
-
 export interface IDropdownButtonFilterItem {
   id: number,
   name: string

@@ -21,6 +21,7 @@ export function Carousel () {
         pagination={{
           clickable: true,
         }}
+        scrollbar={{ draggable: true }}
         effect={"fade"}
         slidesPerView={1}
         centeredSlides={true}
@@ -30,7 +31,7 @@ export function Carousel () {
         className="swiper-carousel"
       >
         {(games as IGame[]).map((slide: IGame) => 
-          <SwiperSlide key={slide.id}>
+          <SwiperSlide style={{width: 'fit-content'}} key={slide.id} >
             <Link to={`/games/${slide.id}`}>
               <TopCarouselSlide cover={slide.cover}/>
             </Link>
