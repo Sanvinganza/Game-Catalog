@@ -5,11 +5,7 @@ const Layout = () => {
   return (
     <div className="app">
       <Header />
-      <main className="container">
-        <Outlet />
-      </main>
-      <footer className="container">
-      </footer>
+      <Outlet />
     </div>
   );
 };

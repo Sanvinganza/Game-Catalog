@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { changeUrlImagesToScreenshot } from "../../../helper/changeUrlImagesToScreenshot";
 import { getAllGamesFromState } from "../../../helper/getAllGamesFromState";
 import { unixDataToData } from "../../../helper/unixDataToData";
 import { IState } from "../../../redux/store";
@@ -35,7 +34,11 @@ export default () => {
         <div className="gamepage-title">{game.name}</div>
         <div className="gamepage-card">
           <div className="gamepage-card-logo"
-            style={{backgroundImage: `url(${changeUrlImagesToScreenshot(game.cover).url})`}}
+            style={{backgroundImage: `url(
+              ${game.cover.url
+      .replace('t_screenshot_med', 't_cover_big')
+      .replace('t_screenshot_big', 't_cover_big')})
+      `}}
           ></div>
           <div className="gamepage-card-info">
 

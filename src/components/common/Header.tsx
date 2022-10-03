@@ -1,12 +1,16 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { fetchGamesByNameRequest } from '../../redux/actions/getGamesByName';
 import { FilterWrapper } from '../FilterWrapper/FilterWrapper';
 import './index.scss';
 
 export function Header () {
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
   return (
     <div className='header'>
       <div className="header-container">
@@ -44,10 +48,11 @@ export function Header () {
                 placeholder="game name..."
                 onKeyDown={(e) => {
                   if(e.key === 'Enter') {
+                    dispatch(fetchGamesByNameRequest({
+                      name: e.currentTarget.value
+                    }));
                     setModalOpen(false);
-                    
-                    navigate('games');
-                    console.log(e.currentTarget.value);
+                    navigate('/games');
                   }
                 }}
                 autoFocus />
