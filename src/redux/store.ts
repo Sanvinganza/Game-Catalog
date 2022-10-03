@@ -8,6 +8,7 @@ import genresReducer from "./reducers/genresReducer";
 import recommendTodayGamesReducer from "./reducers/recommendTodayReducer";
 import highRatingGamesReducer from "./reducers/highRatingGamesReducer";
 import bestGamesForPCReducer from "./reducers/bestGamesForPCReducer";
+import gamesByNameReducer from "./reducers/gamesByNameReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,7 +17,8 @@ const rootReducer= combineReducers({
   genres: genresReducer,
   recommendTodayGames: recommendTodayGamesReducer,
   highRatingGames: highRatingGamesReducer,
-  bestGamesForPC: bestGamesForPCReducer
+  bestGamesForPC: bestGamesForPCReducer,
+  gamesByName: gamesByNameReducer
 });
 
 const store = configureStore({

@@ -1,7 +1,6 @@
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Navigation } from "swiper";
 import '../index.scss';
-import 'swiper/scss/pagination';
 import { TopCarouselSlide } from './TopCarouselSlide';
 import { useSelector } from 'react-redux';
 import { IGame } from '../../../../redux/types/types';
@@ -9,8 +8,7 @@ import { IState } from '../../../../redux/store';
 import { Link } from 'react-router-dom';
 
 export function Carousel () {
-  const { games } = useSelector((state: IState) => state.topGames);
-
+  const { pending, games } = useSelector((state: IState) => state.topGames);
   return (
     <div className="carousel">
       <div className="carousel-header">
@@ -32,9 +30,12 @@ export function Carousel () {
       >
         {(games as IGame[]).map((slide: IGame) => 
           <SwiperSlide style={{width: 'fit-content'}} key={slide.id} >
-            <Link to={`/games/${slide.id}`}>
-              <TopCarouselSlide cover={slide.cover}/>
-            </Link>
+            {!pending?
+              <Link to={`/games/${slide.id}`}>
+                <TopCarouselSlide cover={slide.cover}/>
+              </Link>
+              : 
+              <TopCarouselSlide cover={{id: 1, url:'../../images/not-found.png'}} />}
           </SwiperSlide>)}
       </Swiper>
     </div>
