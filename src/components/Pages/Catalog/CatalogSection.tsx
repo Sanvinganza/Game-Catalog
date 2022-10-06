@@ -7,10 +7,11 @@ import { PageSection } from "../../CatalogWrapper/PageSection";
 interface ICatalogSectionProps {
   genre: string
 }
+
 export const CatalogSection = ({genre}: ICatalogSectionProps) => {
   const dispatch = useDispatch();
   const games = useSelector((state: TState | IState) => state.gamesByGenre.gamesByGenreList[genre]);
-  
+
   useEffect(() => {
     dispatch(fetchGamesByGenreRequest({
       genre: genre

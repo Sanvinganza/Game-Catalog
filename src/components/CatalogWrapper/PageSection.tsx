@@ -20,6 +20,7 @@ export function PageSection ({title, games}: IPageSection) {
   const isLargeDesktop = useMediaQuery(isLargeDesktop_size);
   const isMobile = useMediaQuery(isMobile_size);
   const isDesktop = useMediaQuery(isDesktop_size);
+  
   return (
     <div className="page-section" 
       style={{maxWidth: isLargeDesktop?

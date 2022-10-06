@@ -87,6 +87,7 @@ export const getGamesByNameConfig = (name: string) => ({
   genres != null &
   involved_companies != null &
   rating != null;
+  limit 20;
   search "${name}";
   `
 });

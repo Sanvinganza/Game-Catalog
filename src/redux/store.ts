@@ -10,7 +10,6 @@ import highRatingGamesReducer from "./reducers/highRatingGamesReducer";
 import bestGamesForPCReducer from "./reducers/bestGamesForPCReducer";
 import gamesByNameReducer from "./reducers/gamesByNameReducer";
 import gamesByGenreReducer from "./reducers/gamesByGenreReducer";
-import logger from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,7 +25,7 @@ const rootReducer = combineReducers({
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [thunkMiddleware, sagaMiddleware, logger]
+  middleware: [thunkMiddleware, sagaMiddleware]
 });
 
 sagaMiddleware.run(rootSaga);
