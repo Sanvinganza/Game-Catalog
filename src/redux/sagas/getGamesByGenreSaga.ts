@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { all, call, put, select, takeEvery, takeLeading } from "redux-saga/effects";
+import { all, call, put, select, takeEvery } from "redux-saga/effects";
 import { EGetGamesByGenre, fetchGamesByGenreFailure, fetchGamesByGenreSuccess } from "../actions/getGamesByGenre";
 import { IGame } from "../types/types";
 import { TState } from "../store";
