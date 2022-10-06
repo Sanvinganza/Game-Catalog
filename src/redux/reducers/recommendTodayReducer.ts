@@ -37,6 +37,6 @@ export default (state = initialState, action: TGetRecommendTodayGamesActions) =>
 
 export interface IGetRecommendTodayGamesState {
   pending: boolean,
-  games: IGame[],
+  games: IGame[] | never,
   error: string | null
 }

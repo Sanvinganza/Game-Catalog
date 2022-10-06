@@ -2,31 +2,14 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getAllGamesFromState } from "../../../helper/getAllGamesFromState";
 import { unixDataToData } from "../../../helper/unixDataToData";
-import { IState } from "../../../redux/store";
+import { TState } from "../../../redux/store";
 import { ICompanyInfo, IGame, IGenre, IPlatform } from "../../../redux/types/types";
 import "./index.scss";
 
 export default () => {
   const {id} = useParams();
-  const game = getAllGamesFromState(useSelector((state: IState) => state))
+  const game = getAllGamesFromState(useSelector((state: TState) => state))
     .find((game: IGame) => game.id === (id?+id: null));
-
-  // useEffect(() => {
-  //   axios(getGameByIdConfig(id? id: ''))
-  //     .then((response: IResponse) => {
-  //       const resp = {
-  //         ...response,
-  //         data: response.data.map((game: IGame) => {
-  //           if (game.cover) return {
-  //             ...game,
-  //             cover: changeUrlImagesToScreenshot(game.cover)
-  //           };
-  //           return game;
-  //         })
-  //       };
-  //       setGame(resp.data[0]);
-  //     });
-  // }, [id]);
 
   return (
     <div className="gamepage">

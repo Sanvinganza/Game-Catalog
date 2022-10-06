@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { platforms, ratingIGDB, themes, years } from "../../helper/constants";
-import { IState } from "../../redux/store";
+import { IState, TState } from "../../redux/store";
 import { DropdownButtonFilter } from "./DropdownButtons/DropdownButtonFilter";
 
 export interface filterState {
@@ -16,7 +16,7 @@ export const initFilterState = {
 };
 
 export function FilterWrapper() {
-  const { genres } = useSelector((state: IState) => state.genres);
+  const { genres } = useSelector((state: IState | TState) => state.genres);
 
   const [isOpen, setIsOpen] = useState<filterState>(initFilterState);
   

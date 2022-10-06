@@ -36,7 +36,7 @@ export function PageSection ({title, games}: IPageSection) {
         loop={true}
         scrollbar={{ draggable: true }}
       >
-        {games.map((game: IGame) => 
+        {games?.map((game: IGame) => 
           <SwiperSlide key={game.id}>
             <Link to={`/games/${game.id}`}>
               <Game 

@@ -19,7 +19,7 @@ export function DropdownButtonFilter(
       label: (<CheckboxItem item={item} />)
     };
   });
-
+  //overflow-y: auto
   return () => {
     return <Dropdown
       className="dropdown-button"
@@ -27,18 +27,6 @@ export function DropdownButtonFilter(
       visible={isOpen[name.toLocaleLowerCase()]}
       trigger={['click']}
     >
-      {/* <a onClick={(e) => {
-        setIsOpen({
-          ...{
-            genres: false,
-            raiting: false,
-            platforms: false,
-            themes: false,
-            years: false
-          },
-          [name.toLocaleLowerCase()]: true});
-        return e.preventDefault();
-      }}> */}
       <Space
         onClick={(e) => {
           if(!isOpen[name.toLocaleLowerCase()]){
@@ -55,7 +43,6 @@ export function DropdownButtonFilter(
         className="dropdown-button--inner"
       >
         {name}
-        {console.log(name, isOpen[name.toLocaleLowerCase()])}
         <div
           style={{
             backgroundImage: isOpen[name.toLocaleLowerCase()] ? 'url(../images/dropup.png)' :
@@ -63,7 +50,6 @@ export function DropdownButtonFilter(
           }}
           className="dropdown-button__icon"></div>
       </Space>
-      {/* </a> */}
     </Dropdown>;
   };
 }

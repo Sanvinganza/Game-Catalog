@@ -9,25 +9,45 @@ import recommendTodayGamesReducer from "./reducers/recommendTodayReducer";
 import highRatingGamesReducer from "./reducers/highRatingGamesReducer";
 import bestGamesForPCReducer from "./reducers/bestGamesForPCReducer";
 import gamesByNameReducer from "./reducers/gamesByNameReducer";
+import gamesByGenreReducer from "./reducers/gamesByGenreReducer";
+import logger from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer= combineReducers({
+const rootReducer = combineReducers({
   topGames: topGamesReducer,
   genres: genresReducer,
   recommendTodayGames: recommendTodayGamesReducer,
   highRatingGames: highRatingGamesReducer,
   bestGamesForPC: bestGamesForPCReducer,
-  gamesByName: gamesByNameReducer
+  gamesByName: gamesByNameReducer,
+  gamesByGenre: gamesByGenreReducer
 });
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: [thunkMiddleware, sagaMiddleware]
+  middleware: [thunkMiddleware, sagaMiddleware, logger]
 });
 
 sagaMiddleware.run(rootSaga);
 
 export default store;
 
-export type IState = ReturnType<typeof rootReducer>;
+export type TState = ReturnType<typeof rootReducer>
+export type TGamesByGenreReducer = ReturnType<typeof gamesByGenreReducer>;
+export type TTopGames = ReturnType<typeof topGamesReducer>;
+export type TGenres = ReturnType<typeof genresReducer>;
+export type TRecommendTodayGames = ReturnType<typeof recommendTodayGamesReducer>;
+export type THighRatingGames = ReturnType<typeof highRatingGamesReducer>;
+export type TBestGamesForPC = ReturnType<typeof bestGamesForPCReducer>;
+export type TGamesByName = ReturnType<typeof gamesByNameReducer>;
+
+export interface IState {
+  topGames: TTopGames,
+  genres: TGenres,
+  recommendTodayGames: TRecommendTodayGames,
+  highRatingGames: THighRatingGames,
+  bestGamesForPC: TBestGamesForPC,
+  gamesByName: TGamesByName,
+  gamesByGenre: TGamesByGenreReducer
+}

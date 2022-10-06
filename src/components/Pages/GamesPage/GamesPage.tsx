@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { IState } from "../../../redux/store";
+import { TState } from "../../../redux/store";
 import { IGame } from "../../../redux/types/types";
 import { Game } from "../../common/Game";
 import "./index.scss";
 
 export const GamesPage = () => {
-  const { pending, games } = useSelector((state: IState) => state.gamesByName);
+  const { pending, games } = useSelector((state: TState) => state.gamesByName);
 
   return (
     <div className="gamespage-container">

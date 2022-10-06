@@ -1,4 +1,5 @@
 import { IFetchBestGamesForPCFailure, IFetchBestGamesForPCRequest, IFetchBestGamesForPCSuccess } from "../actions/getBestGamesForPC";
+import { IFetchGamesByGenreFailure, IFetchGamesByGenreRequest, IFetchGamesByGenreSuccess } from "../actions/getGamesByGenre";
 import { IFetchGamesByNameFailure, IFetchGamesByNameRequest, IFetchGamesByNameSuccess } from "../actions/getGamesByName";
 import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
 import { IFetchHighRatingGamesFailure, IFetchHighRatingGamesRequest, IFetchHighRatingGamesSuccess } from "../actions/getHighRatingGames";
@@ -40,7 +41,7 @@ export interface IGame {
   videos?: IVideos
 }
 export interface IGenre {
-  id?: number,
+  id: number,
   name: string
 }
 export interface IAction {
@@ -75,3 +76,7 @@ export type TGetGamesByNameActions =
   | IFetchGamesByNameRequest
   | IFetchGamesByNameSuccess
   | IFetchGamesByNameFailure;
+export type TGetGamesByGenreActions = 
+  | IFetchGamesByGenreRequest
+  | IFetchGamesByGenreSuccess
+  | IFetchGamesByGenreFailure;
