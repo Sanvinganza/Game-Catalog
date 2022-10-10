@@ -10,6 +10,7 @@ import highRatingGamesReducer from "./reducers/highRatingGamesReducer";
 import bestGamesForPCReducer from "./reducers/bestGamesForPCReducer";
 import gamesByNameReducer from "./reducers/gamesByNameReducer";
 import gamesByGenreReducer from "./reducers/gamesByGenreReducer";
+import filterReducer from "./reducers/filterReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -20,10 +21,11 @@ const rootReducer = combineReducers({
   highRatingGames: highRatingGamesReducer,
   bestGamesForPC: bestGamesForPCReducer,
   gamesByName: gamesByNameReducer,
-  gamesByGenre: gamesByGenreReducer
+  gamesByGenre: gamesByGenreReducer,
+  filter: filterReducer
 });
 
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
   middleware: [thunkMiddleware, sagaMiddleware]
 });
@@ -40,6 +42,7 @@ export type TRecommendTodayGames = ReturnType<typeof recommendTodayGamesReducer>
 export type THighRatingGames = ReturnType<typeof highRatingGamesReducer>;
 export type TBestGamesForPC = ReturnType<typeof bestGamesForPCReducer>;
 export type TGamesByName = ReturnType<typeof gamesByNameReducer>;
+export type TFilter = ReturnType<typeof filterReducer>;
 
 export interface IState {
   topGames: TTopGames,
@@ -48,5 +51,6 @@ export interface IState {
   highRatingGames: THighRatingGames,
   bestGamesForPC: TBestGamesForPC,
   gamesByName: TGamesByName,
-  gamesByGenre: TGamesByGenreReducer
+  gamesByGenre: TGamesByGenreReducer,
+  filter: TFilter
 }

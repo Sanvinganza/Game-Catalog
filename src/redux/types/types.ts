@@ -1,4 +1,5 @@
 import { IFetchBestGamesForPCFailure, IFetchBestGamesForPCRequest, IFetchBestGamesForPCSuccess } from "../actions/getBestGamesForPC";
+import { IFetchFilter, IFetchGenresForFilter } from "../actions/getFilter";
 import { IFetchGamesByGenreFailure, IFetchGamesByGenreRequest, IFetchGamesByGenreSuccess } from "../actions/getGamesByGenre";
 import { IFetchGamesByNameFailure, IFetchGamesByNameRequest, IFetchGamesByNameSuccess } from "../actions/getGamesByName";
 import { IFetchGenresFailure, IFetchGenresRequest, IFetchGenresSuccess } from "../actions/getGenres";
@@ -42,7 +43,8 @@ export interface IGame {
 }
 export interface IGenre {
   id: number,
-  name: string
+  name: string,
+  checked: boolean
 }
 export interface IAction {
   type: string,
@@ -80,3 +82,6 @@ export type TGetGamesByGenreActions =
   | IFetchGamesByGenreRequest
   | IFetchGamesByGenreSuccess
   | IFetchGamesByGenreFailure;
+export type TGetFilterActions = 
+  | IFetchFilter
+  | IFetchGenresForFilter;

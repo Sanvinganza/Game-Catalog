@@ -7,5 +7,6 @@ export const getAllGamesFromState = (state: TState | IState) => {
       .map((gamesArray) => gamesArray.games)
       .filter((element) => element !== undefined)
       .flat(2),
-    ...getAllGamesFromGamesByGenre(state.gamesByGenre)];
+    ...getAllGamesFromGamesByGenre(state.gamesByGenre)
+  ];
 };

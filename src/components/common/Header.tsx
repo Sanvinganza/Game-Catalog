@@ -1,5 +1,6 @@
 import { Modal } from 'antd';
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { fetchGamesByNameRequest } from '../../redux/actions/getGamesByName';
@@ -10,7 +11,10 @@ export function Header () {
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+  const { ref, inView } = useInView({
+    threshold: 0
+  });
+
   return (
     <div className='header'>
       <div className="header-container">
@@ -28,18 +32,20 @@ export function Header () {
           <div className="header--item-icon" onClick={()=>setModalOpen(!modalOpen)} style={{backgroundImage: 'url(../images/search.png)'}}></div>
           <Modal
             visible={modalOpen}
-            onOk={() => setModalOpen(false)}
-            onCancel={() => setModalOpen(false)}
+            onOk={() => setModalOpen(!modalOpen)}
+            onCancel={() => setModalOpen(!modalOpen)}
             footer={false}
             closeIcon={
-              <div style={{
-                height: '32px',
-                width: '32px',
-                marginLeft: '25px',
-                backgroundSize: 'cover',
-                backgroundImage: 'url(../images/close.png)',
-                alignItems: 'center'
-              }}></div>}
+              <div
+                ref={ref}
+                style={{
+                  height: '32px',
+                  width: '32px',
+                  marginLeft: '25px',
+                  backgroundSize: 'cover',
+                  backgroundImage: 'url(../images/close.png)',
+                  alignItems: 'center'
+                }}></div>}
           >
             <span className="input" style={{width: '100%'}}>
               <input 
@@ -58,7 +64,7 @@ export function Header () {
                 autoFocus />
               <span></span>	
             </span>
-            <FilterWrapper />
+            <FilterWrapper visible={inView}/>
           </Modal>
         </div>
         <img className='header-logo' src="./images/logo.png" />
