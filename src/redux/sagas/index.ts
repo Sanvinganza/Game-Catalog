@@ -1,5 +1,6 @@
 import { all, fork } from "redux-saga/effects";
 import getBestGamesForPCSaga from "./getBestGamesForPCSaga";
+import getGamesByGenreSaga from "./getGamesByGenreSaga";
 import getGamesByNameSaga from "./getGamesByName";
 import getGenresSaga from "./getGenresSaga";
 import getHighRatingGamesSaga from "./getHighRatingGamesSaga";
@@ -13,6 +14,7 @@ export function* rootSaga() {
     fork(getRecommendTodayGamesSaga),
     fork(getHighRatingGamesSaga),
     fork(getBestGamesForPCSaga),
-    fork(getGamesByNameSaga)
+    fork(getGamesByNameSaga),
+    fork(getGamesByGenreSaga)
   ]);
 }

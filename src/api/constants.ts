@@ -87,6 +87,23 @@ export const getGamesByNameConfig = (name: string) => ({
   genres != null &
   involved_companies != null &
   rating != null;
+  limit 20;
   search "${name}";
+  `
+});
+export const getGamesByGenreConfig = (genre: string) => ({
+  method: 'post',
+  url: '/v4/games',
+  headers: {
+    'Client-ID': process.env['CLIENT-ID'] as string,
+    'Authorization': process.env['AUTHORIZATION'] as string
+  },
+  data: `fields created_at,name,summary,cover.url,age_ratings.category,age_ratings.rating,rating,platforms.name, genres.name, involved_companies.company.name;
+  where cover.url != null &
+  platforms != null &
+  genres != null &
+  involved_companies != null &
+  rating != null &
+  genres.name = "${genre}";
   `
 });
