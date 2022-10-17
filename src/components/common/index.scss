@@ -1,0 +1,223 @@
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@200&family=Oleo+Script&display=swap);
+
+$open-sans: 'Open Sans',sans-serif;
+
+.header {
+  padding: 10px 16px;
+  height: auto;
+  position: sticky; top: 0;
+  background-color: rgba(31,27,46,.88);
+  backdrop-filter: blur(0px);
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  place-content: center;
+
+  .header-logo {
+    padding-left: 5px;
+    height: 32px;
+  }
+}
+
+.header-container {
+  max-width: 1080px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.header--item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-self: center;
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.header--item-icon {
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.poster > img {
+  width: 190px;
+  height: 200px;
+}
+
+.game:hover {
+  scale: 1;
+  transition: 300ms;
+}
+
+.game {
+  min-height: 300px;
+  font-family: $open-sans;
+  scale: 0.75;
+  background-size: cover;
+  
+  .game-title {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .game-image {
+    height: 300px;
+    border-radius: 15px;
+    background-size: cover;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+     rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, 
+     rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, 
+     rgba(0, 0, 0, 0.06) 0px 2px 1px, 
+     rgba(0, 0, 0, 0.09) 0px 4px 2px, 
+     rgba(0, 0, 0, 0.09) 0px 8px 4px, 
+     rgba(0, 0, 0, 0.09) 0px 16px 8px, 
+     rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    background-position: center;
+    background-image: url(../../images/poster.jpg);
+
+    .game-rating {
+      background-color: #da0000;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 10px;
+      top: 10px;
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+    }
+  
+    .game-age-rating {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-shadow: 2px 2px 2px 2px black;
+    }
+  }
+}
+.search-wrapper {
+  display: flex;
+
+}
+
+.search-modal {
+  color: #121212;
+  font-size: 1.1em;
+  background-color: #550077;
+  transition: all 1s ease-out 0s;
+}
+
+@media (min-width: 560px) {
+  .game-title {
+    font-size: 1.2em;
+  }
+  .game-image{
+    height: 250px;
+  }
+  .header--item-icon {
+    width: 64px;
+    height: 64px;
+  }
+  .header > .header-logo {
+    height: 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .game{
+    scale: 0.95;
+  }
+}
+
+@media (min-width: 960px) {
+  .game-title {
+    font-size: 1.4em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .game-title {
+    font-size: 2em;
+  }
+}
+
+.loader{
+  height: 100%;
+  width: 100%;
+  min-width: 150px;
+  min-height: 50px;
+}
+
+.ant-modal-content{
+  background-color: transparent !important;
+}
+.ant-modal{
+  width: fit-content !important;
+}
+//-------input-------//
+.input {
+	position:relative;
+	font-size: 1.5em;
+	background: linear-gradient(21deg, #10abff, #1beabd);
+	padding: 3px;
+	display: inline-block;
+	border-radius: 9999em;
+	*:not(span) {
+		position: relative;
+		display: inherit;
+		border-radius: inherit;
+		margin: 0;
+		border: none;
+		outline: none;
+		padding: 0 .325em;
+		z-index: 1;
+		&:focus + span {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+	span {
+		transform: scale(.993, .94); // scale it down just a little bit
+		transition: transform .5s, opacity .25s;
+		opacity: 0; // is hidden by default
+		position:absolute;
+		z-index: 0; // needs to be below the field (would block input otherwise)
+		margin:4px; // a bit bigger than .input padding, this prevents background color pixels shining through
+		left:0;
+		top:0;
+		right:0;
+		bottom:0;
+		border-radius: inherit;
+		pointer-events: none; // this allows the user to click through this element, as the shadow is rather wide it might overlap with other fields and we don't want to block those.
+		box-shadow: inset 0 0 0 3px #fff,
+			0 0 0 4px #fff,
+			3px -3px 30px #1beabd, 
+			-3px 3px 30px #10abff;
+	}
+}
+input {
+	font-family: inherit;
+	line-height:inherit;
+	color:#2e3750;
+	min-width:12em;
+}
+::placeholder {
+	color:#cbd0d5;
+}
+html::after {
+	content:'';
+	background: linear-gradient(90deg, #8000b3, #1b30ea);
+	height:3px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
+}
